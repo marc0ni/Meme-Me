@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
@@ -16,41 +17,78 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     
+    // MARK: - Constants
+    //Copied from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
+    let TOP_DEFAULT_TEXT = "TOP"
+    let BOTTOM_DEFAULT_TEXT = "BOTTOM"
+    
+    var oldText: String = ""
+    
+    let memeTextAttributes = [
+        NSStrokeColorAttributeName : UIColor.blackColor(),
+        NSForegroundColorAttributeName : UIColor.whiteColor(),
+        NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        NSStrokeWidthAttributeName : -5.0
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        //Modified from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
+        setUpTextField(topTextField)
+        setUpTextField(bottomTextField)
     }
     
     override func viewWillAppear(animated: Bool) {
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     }
     
-    enum Sources {
-        case PhotoLibrary
-        case Camera
+    ////// TextField Functions
+    let memeTextDelegate = MemeTextFieldDelegate()
+    
+    //Modified from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
+    func setUpTextField(textField: UITextField) {
+        
+        textField.defaultTextAttributes = memeTextAttributes
+        
+        textField.textAlignment = .Center
+        
+        textField.delegate = self
     }
     
+    
+    ///// ImagePicker Functions
+    /*enum Sources {
+        case PhotoLibrary
+        case Camera
+    }*/
+    
+    func resetText() {
+        topTextField.text = TOP_DEFAULT_TEXT
+        bottomTextField.text = BOTTOM_DEFAULT_TEXT
+    }
     
     @IBAction func cancelImagePicker(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    @IBAction func pickAnImageFromCamera(sender: AnyObject) {
-        switchSource(Sources.Camera)
-        /*let imagePicker = UIImagePickerController()
+    //Copied from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
+    func pickImageFromSource(source:UIImagePickerControllerSourceType){
+        let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-        presentViewController(imagePicker, animated: true, completion: nil)*/
+        imagePicker.sourceType = source
+        presentViewController(imagePicker, animated: true, completion:nil)
     }
     
+    //Copied from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
+    @IBAction func pickAnImageFromCamera(sender: AnyObject) {
+        pickImageFromSource(UIImagePickerControllerSourceType.Camera)
+    }
+    
+    //Copied from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
     @IBAction func pickAnImageFromAlbum(sender: AnyObject) {
-        switchSource(Sources.PhotoLibrary)
-        /*let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        presentViewController(imagePicker, animated: true, completion: nil)*/
+        pickImageFromSource(UIImagePickerControllerSourceType.PhotoLibrary)
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
@@ -64,19 +102,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func switchSource(source: Sources) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        switch source {
-        case Sources.PhotoLibrary:
-            imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        case Sources.Camera:
-            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-            
-        }
-        presentViewController(imagePicker, animated: true, completion: nil)
     }
 }
 
