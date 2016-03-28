@@ -44,8 +44,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
-        self.subscribeToKeyboardNotifications()
+        subscribeToKeyboardNotifications()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -98,7 +99,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imagePickerView.image = image
-            imagePickerView.contentMode = .ScaleToFill
+            imagePickerView.contentMode = .ScaleAspectFill
             dismissViewControllerAnimated(true, completion: nil)
         }
     }
@@ -113,31 +114,35 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     
     ///// MARK: Keyboard Functions
-    // Copied from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
-    func keyboardWillShow(notification: NSNotification){
-        if bottomTextField.isFirstResponder() {
-            if view.frame.origin.y == 0 {
-                self.view.frame.origin.y -= getKeyboardHeight(notification)
-            }
+    /*func keyboardWillShow(notification: NSNotification){
+        self.view.frame.origin.y -= getKeyboardHeight(notification)
+    }*/
+    
+    func keyboardWillShow(notification: NSNotification) -> Void{
+        if bottomTextField.isFirstResponder(){
+            self.view.frame.origin.y -= getKeyboardHeight(notification);
+        }
+        else if topTextField.isFirstResponder(){
+            self.view.frame.origin.y = 0;
         }
     }
     
     // Copied from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
     func subscribeToKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     }
     
     // Modified from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
     func getKeyboardHeight(notification:NSNotification) -> CGFloat {
         let userInfo = notification.userInfo
-        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as!NSValue
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
         return keyboardSize.CGRectValue().height
     }
     
     // Copied from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
     func keyboardWillHide(notification: NSNotification){
-        self.view.frame.origin.y = 0
+        view.frame.origin.y = 0
     }
     
     // Copied from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
