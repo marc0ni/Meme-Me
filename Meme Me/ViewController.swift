@@ -74,10 +74,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     ///// MARK: ImagePicker Functions
-    @IBAction func cancelImagePicker(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-    
+       
     //Copied from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
     func pickImageFromSource(source:UIImagePickerControllerSourceType){
         let imagePicker = UIImagePickerController()
@@ -111,13 +108,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return [.AllButUpsideDown]
     }
-
+    
     
     ///// MARK: Keyboard Functions
-    /*func keyboardWillShow(notification: NSNotification){
-        self.view.frame.origin.y -= getKeyboardHeight(notification)
-    }*/
-    
+    // Modified per this discussion thread: https://discussions.udacity.com/t/better-way-to-shift-the-view-for-keyboardwillshow-and-keyboardwillhide/36558
     func keyboardWillShow(notification: NSNotification) -> Void{
         if bottomTextField.isFirstResponder(){
             self.view.frame.origin.y -= getKeyboardHeight(notification);
@@ -149,7 +143,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func unsubscribeFromKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().removeObserver(self, name:UIKeyboardDidShowNotification, object:nil)
         NSNotificationCenter.defaultCenter().removeObserver(self, name:UIKeyboardDidHideNotification, object:nil)
-
+        
     }
     
     

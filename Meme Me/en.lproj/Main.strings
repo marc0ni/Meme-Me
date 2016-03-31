@@ -1,0 +1,9 @@
+
+/* Class = "UIBarButtonItem"; title = "Album"; ObjectID = "KnJ-yk-gWO"; */
+"KnJ-yk-gWO.title" = "Album";
+
+/* Class = "UITextField"; placeholder = "TOP"; ObjectID = "u8A-6w-cwU"; */
+"u8A-6w-cwU.placeholder" = "TOP";
+
+/* Class = "UITextField"; placeholder = "BOTTOM"; ObjectID = "yNi-s6-vTy"; */
+"yNi-s6-vTy.placeholder" = "BOTTOM";
