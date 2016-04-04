@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
@@ -25,7 +26,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     let TOP_DEFAULT_TEXT = "TOP"
     let BOTTOM_DEFAULT_TEXT = "BOTTOM"
     
-    var oldText: String = ""
+    //var oldText: String = ""
+    let memeTextDelegate = MemeTextFieldDelegate()
     
     let memeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor(),
@@ -34,13 +36,28 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NSStrokeWidthAttributeName : -5.0
     ]
     
+    enum TextFields {
+        case topTextField
+        case bottomTextField
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        /*setUpTextField(TextFields.topTextField)
+        setUpTextField(TextFields.bottomTextField)*/
         
-        //Modified from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
-        setUpTextField(topTextField)
-        setUpTextField(bottomTextField)
+        topTextField.text = TOP_DEFAULT_TEXT
+        bottomTextField.text = BOTTOM_DEFAULT_TEXT
+        
+        topTextField.textAlignment = .Center
+        bottomTextField.textAlignment = .Center
+
+        topTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.defaultTextAttributes = memeTextAttributes
+        
+        self.topTextField.delegate = memeTextDelegate
+        self.bottomTextField.delegate = memeTextDelegate
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -55,26 +72,45 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     ////// MARK: TextField Functions
-    let memeTextDelegate = MemeTextFieldDelegate()
-    
-    //Modified from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
-    func setUpTextField(textField: UITextField) {
-        
+    func textFieldProperties() {
+        let textField = UITextField()
         textField.defaultTextAttributes = memeTextAttributes
-        
+        textField.delegate = memeTextDelegate
         textField.textAlignment = .Center
         
-        textField.delegate = self
+    }
+    
+    func setUpTextField(textField: TextFields) {
+        
+        switch textField {
+            
+        case TextFields.topTextField:
+            topTextField.text = TOP_DEFAULT_TEXT
+            textFieldProperties()
+            /*topTextField.defaultTextAttributes = memeTextAttributes
+            self.topTextField.delegate = memeTextDelegate
+            topTextField.textAlignment = .Center*/
+            
+        case TextFields.bottomTextField:
+             bottomTextField.text = BOTTOM_DEFAULT_TEXT
+             textFieldProperties()
+             /*bottomTextField.defaultTextAttributes = memeTextAttributes
+             self.bottomTextField.delegate = memeTextDelegate
+             bottomTextField.textAlignment = .Center*/
+        }
     }
     
     func resetText() {
-        topTextField.text = TOP_DEFAULT_TEXT
-        bottomTextField.text = BOTTOM_DEFAULT_TEXT
+        setUpTextField(TextFields.topTextField)
+        setUpTextField(TextFields.bottomTextField)
     }
     
     
     ///// MARK: ImagePicker Functions
-       
+    @IBAction func cancelImagePicker(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     //Copied from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
     func pickImageFromSource(source:UIImagePickerControllerSourceType){
         let imagePicker = UIImagePickerController()
@@ -111,7 +147,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     ///// MARK: Keyboard Functions
-    // Modified per this discussion thread: https://discussions.udacity.com/t/better-way-to-shift-the-view-for-keyboardwillshow-and-keyboardwillhide/36558
+    /*func keyboardWillShow(notification: NSNotification){
+    self.view.frame.origin.y -= getKeyboardHeight(notification)
+    }*/
+    // Copied per discussion thread: https://discussions.udacity.com/t/better-way-to-shift-the-view-for-keyboardwillshow-and-keyboardwillhide/36558
     func keyboardWillShow(notification: NSNotification) -> Void{
         if bottomTextField.isFirstResponder(){
             self.view.frame.origin.y -= getKeyboardHeight(notification);
@@ -121,25 +160,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
-    // Copied from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
     func subscribeToKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     }
     
-    // Modified from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
     func getKeyboardHeight(notification:NSNotification) -> CGFloat {
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
         return keyboardSize.CGRectValue().height
     }
     
-    // Copied from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
     func keyboardWillHide(notification: NSNotification){
         view.frame.origin.y = 0
     }
     
-    // Copied from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
     func unsubscribeFromKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().removeObserver(self, name:UIKeyboardDidShowNotification, object:nil)
         NSNotificationCenter.defaultCenter().removeObserver(self, name:UIKeyboardDidHideNotification, object:nil)
@@ -201,5 +236,3 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
 }
-
-

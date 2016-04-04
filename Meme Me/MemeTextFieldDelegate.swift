@@ -11,7 +11,10 @@ import UIKit
 
 class MemeTextFieldDelegate: NSObject, UITextFieldDelegate {
     
-     //Copied from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
+    let TOP_DEFAULT_TEXT = "TOP"
+    let BOTTOM_DEFAULT_TEXT = "BOTTOM"
+    
+    //Copied from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
     var oldText: String = ""
     
     //Copied from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
