@@ -70,14 +70,25 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="a4s-Vb-ZJY">
-                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="f3k-uX-fYc"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="BbM-DI-gtW"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="f3k-uX-fYc">
+                            <connections>
+                                <action selector="shareAction:" destination="Wae-ZZ-vDP" id="RKK-05-UiM"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="BbM-DI-gtW">
+                            <connections>
+                                <action selector="cancelAction:" destination="Wae-ZZ-vDP" id="JUa-Ga-Tr8"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="albumButton" destination="exh-Si-yOf" id="THv-e3-Bmb"/>
                         <outlet property="bottomTextField" destination="gAm-Ly-ciF" id="3nW-IC-9MQ"/>
+                        <outlet property="bottomToolBar" destination="VyE-Tp-TWL" id="UKT-5T-Acs"/>
                         <outlet property="cameraButton" destination="KXX-Cu-HKe" id="aIh-h1-z9n"/>
+                        <outlet property="cancelButton" destination="BbM-DI-gtW" id="iEr-UB-AYA"/>
                         <outlet property="imagePickerView" destination="1Lq-va-Zcv" id="cs1-uZ-bLB"/>
+                        <outlet property="shareButton" destination="f3k-uX-fYc" id="O6g-Wz-vLX"/>
                         <outlet property="topTextField" destination="VEr-Ba-WH3" id="4Ck-rM-P0Q"/>
                     </connections>
                 </viewController>
