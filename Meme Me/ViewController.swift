@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import AVFoundation
 
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
@@ -17,8 +18,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var albumButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
-    
+    @IBOutlet weak var topToolBar: UIToolbar!
     @IBOutlet weak var bottomToolBar: UIToolbar!
+    @IBOutlet weak var cropToolButton: UIBarButtonItem!
+   
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     
@@ -26,8 +29,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     //Copied from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
     let TOP_DEFAULT_TEXT = "TOP"
     let BOTTOM_DEFAULT_TEXT = "BOTTOM"
+    var cropImage: UIImage!
     
-    //var oldText: String = ""
     let memeTextDelegate = MemeTextFieldDelegate()
     
     let memeTextAttributes = [
@@ -54,6 +57,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         self.topTextField.delegate = memeTextDelegate
         self.bottomTextField.delegate = memeTextDelegate
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -102,7 +106,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             dismissViewControllerAnimated(true, completion: nil)
         }
     }
-    
+        
     //Copied from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
     @IBAction func shareAction(sender: UIBarButtonItem) {
         let memedImage = generateMemedImage()
@@ -162,23 +166,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     ///// MARK: Helpers for creating Meme
     func hideStatusBarAndToolBar() {
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        topToolBar.hidden = true
         bottomToolBar.hidden = true
     }
     
     func showStatusBarAndToolbar() {
-        self.navigationController?.navigationBarHidden = false
+        topToolBar.hidden = false
         bottomToolBar.hidden = false
-    }
-    
-    func takeScreenshot() -> UIImage {
-        // uses the context approach
-        UIGraphicsBeginImageContext(view.frame.size)
-        view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
-        let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return memedImage
     }
     
     func resetText() {
@@ -230,3 +224,5 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
 }
+
+
