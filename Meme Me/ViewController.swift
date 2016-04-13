@@ -11,9 +11,10 @@ import Foundation
 import AVFoundation
 
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, CroppableImageViewDelegateProtocol {
     
     @IBOutlet weak var imagePickerView: UIImageView!
+    @IBOutlet weak var cropView: CroppableImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var albumButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
@@ -30,6 +31,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     let TOP_DEFAULT_TEXT = "TOP"
     let BOTTOM_DEFAULT_TEXT = "BOTTOM"
     var cropImage: UIImage!
+    var imageCropView: UIView!
     
     let memeTextDelegate = MemeTextFieldDelegate()
     
@@ -57,7 +59,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         self.topTextField.delegate = memeTextDelegate
         self.bottomTextField.delegate = memeTextDelegate
-        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -66,8 +67,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //Modified from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
         if let _ = imagePickerView.image {
             shareButton.enabled = true
+            //cropToolButton.enabled = true
         } else {
             shareButton.enabled = false
+            //cropToolButton.enabled = false
         }
         
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
@@ -100,8 +103,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            imagePickerView.image = image
+        if let chosenImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            imagePickerView.image = chosenImage
             imagePickerView.contentMode = .ScaleAspectFill
             dismissViewControllerAnimated(true, completion: nil)
         }
@@ -128,6 +131,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return [.AllButUpsideDown]
+    }
+    
+    ///// MARK: Crop Button Functions
+    
+    func haveValidCropRect(haveValidCropRect:Bool)
+    {
+        //println("In haveValidCropRect. Value = \(haveValidCropRect)")
+        cropToolButton.enabled = haveValidCropRect
+    }
+
+    @IBAction func cropButtonClicked(sender: UIBarButtonItem) {
+        if let croppedImage = cropView.croppedImage() {
+            self.imagePickerView.hidden = false
+                do {
+                    UIImageWriteToSavedPhotosAlbum(croppedImage, nil, nil, nil)
+                    self.imagePickerView.hidden = true
+            }
+        }
     }
     
     
