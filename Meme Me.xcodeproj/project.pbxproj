@@ -16,18 +16,6 @@
 		38487A391C9E1442004B8CD5 /* Meme_MeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38487A381C9E1442004B8CD5 /* Meme_MeTests.swift */; };
 		38487A441C9E1442004B8CD5 /* Meme_MeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38487A431C9E1442004B8CD5 /* Meme_MeUITests.swift */; };
 		38487A521C9F0997004B8CD5 /* MemeTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38487A511C9F0997004B8CD5 /* MemeTextFieldDelegate.swift */; };
-		38FA90191CBECA7B00C2E0B7 /* CornerpointClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FA90181CBECA7B00C2E0B7 /* CornerpointClientProtocol.swift */; };
-		38FA901A1CBECA7B00C2E0B7 /* CornerpointClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FA90181CBECA7B00C2E0B7 /* CornerpointClientProtocol.swift */; };
-		38FA901B1CBECA7B00C2E0B7 /* CornerpointClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FA90181CBECA7B00C2E0B7 /* CornerpointClientProtocol.swift */; };
-		38FA90211CBED58F00C2E0B7 /* CroppableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FA90201CBED58F00C2E0B7 /* CroppableImageView.swift */; };
-		38FA90221CBED58F00C2E0B7 /* CroppableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FA90201CBED58F00C2E0B7 /* CroppableImageView.swift */; };
-		38FA90231CBED58F00C2E0B7 /* CroppableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FA90201CBED58F00C2E0B7 /* CroppableImageView.swift */; };
-		38FA90251CBED64000C2E0B7 /* CroppableImageViewDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FA90241CBED64000C2E0B7 /* CroppableImageViewDelegateProtocol.swift */; };
-		38FA90261CBED64000C2E0B7 /* CroppableImageViewDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FA90241CBED64000C2E0B7 /* CroppableImageViewDelegateProtocol.swift */; };
-		38FA90271CBED64000C2E0B7 /* CroppableImageViewDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FA90241CBED64000C2E0B7 /* CroppableImageViewDelegateProtocol.swift */; };
-		38FA90291CBED6C600C2E0B7 /* CornerpointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FA90281CBED6C600C2E0B7 /* CornerpointView.swift */; };
-		38FA902A1CBED6C600C2E0B7 /* CornerpointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FA90281CBED6C600C2E0B7 /* CornerpointView.swift */; };
-		38FA902B1CBED6C600C2E0B7 /* CornerpointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FA90281CBED6C600C2E0B7 /* CornerpointView.swift */; };
 		38FF39B61CA9FD2900ACF3BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38487A241C9E1442004B8CD5 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -64,10 +52,6 @@
 		38487A431C9E1442004B8CD5 /* Meme_MeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meme_MeUITests.swift; sourceTree = "<group>"; };
 		38487A451C9E1442004B8CD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38487A511C9F0997004B8CD5 /* MemeTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeTextFieldDelegate.swift; sourceTree = "<group>"; };
-		38FA90181CBECA7B00C2E0B7 /* CornerpointClientProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CornerpointClientProtocol.swift; path = "Meme Me/CornerpointClientProtocol.swift"; sourceTree = "<group>"; };
-		38FA90201CBED58F00C2E0B7 /* CroppableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CroppableImageView.swift; path = "Meme Me/CroppableImageView.swift"; sourceTree = "<group>"; };
-		38FA90241CBED64000C2E0B7 /* CroppableImageViewDelegateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CroppableImageViewDelegateProtocol.swift; path = "Meme Me/CroppableImageViewDelegateProtocol.swift"; sourceTree = "<group>"; };
-		38FA90281CBED6C600C2E0B7 /* CornerpointView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CornerpointView.swift; path = "Meme Me/CornerpointView.swift"; sourceTree = "<group>"; };
 		38FF39B81CA9FD3200ACF3BB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,7 +103,6 @@
 		38487A1F1C9E1441004B8CD5 /* Meme Me */ = {
 			isa = PBXGroup;
 			children = (
-				38FA8FFA1CBEAFA300C2E0B7 /* Image Cropping */,
 				38487A201C9E1442004B8CD5 /* AppDelegate.swift */,
 				38487A221C9E1442004B8CD5 /* ViewController.swift */,
 				38487A241C9E1442004B8CD5 /* Main.storyboard */,
@@ -148,18 +131,6 @@
 				38487A451C9E1442004B8CD5 /* Info.plist */,
 			);
 			path = "Meme MeUITests";
-			sourceTree = "<group>";
-		};
-		38FA8FFA1CBEAFA300C2E0B7 /* Image Cropping */ = {
-			isa = PBXGroup;
-			children = (
-				38FA90181CBECA7B00C2E0B7 /* CornerpointClientProtocol.swift */,
-				38FA90201CBED58F00C2E0B7 /* CroppableImageView.swift */,
-				38FA90241CBED64000C2E0B7 /* CroppableImageViewDelegateProtocol.swift */,
-				38FA90281CBED6C600C2E0B7 /* CornerpointView.swift */,
-			);
-			name = "Image Cropping";
-			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,12 +266,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				38487A231C9E1442004B8CD5 /* ViewController.swift in Sources */,
-				38FA90211CBED58F00C2E0B7 /* CroppableImageView.swift in Sources */,
-				38FA90191CBECA7B00C2E0B7 /* CornerpointClientProtocol.swift in Sources */,
 				38487A291C9E1442004B8CD5 /* Meme_Me.xcdatamodeld in Sources */,
-				38FA90291CBED6C600C2E0B7 /* CornerpointView.swift in Sources */,
 				38487A521C9F0997004B8CD5 /* MemeTextFieldDelegate.swift in Sources */,
-				38FA90251CBED64000C2E0B7 /* CroppableImageViewDelegateProtocol.swift in Sources */,
 				38487A211C9E1442004B8CD5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,11 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38FA90221CBED58F00C2E0B7 /* CroppableImageView.swift in Sources */,
 				38487A391C9E1442004B8CD5 /* Meme_MeTests.swift in Sources */,
-				38FA90261CBED64000C2E0B7 /* CroppableImageViewDelegateProtocol.swift in Sources */,
-				38FA902A1CBED6C600C2E0B7 /* CornerpointView.swift in Sources */,
-				38FA901A1CBECA7B00C2E0B7 /* CornerpointClientProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,11 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38FA90231CBED58F00C2E0B7 /* CroppableImageView.swift in Sources */,
 				38487A441C9E1442004B8CD5 /* Meme_MeUITests.swift in Sources */,
-				38FA90271CBED64000C2E0B7 /* CroppableImageViewDelegateProtocol.swift in Sources */,
-				38FA902B1CBED6C600C2E0B7 /* CornerpointView.swift in Sources */,
-				38FA901B1CBECA7B00C2E0B7 /* CornerpointClientProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

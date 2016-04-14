@@ -18,9 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hw2-ck-rxE" userLabel="Crop View">
-                                <rect key="frame" x="0.0" y="44" width="600" height="512"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Lq-va-Zcv">
                                 <rect key="frame" x="0.0" y="44" width="600" height="512"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -47,14 +44,6 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="SMG-2U-4Un"/>
-                                    <barButtonItem image="crop" id="c6R-qB-F20">
-                                        <connections>
-                                            <action selector="cropButtonClicked:" destination="Wae-ZZ-vDP" id="HDJ-oH-ZHg"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="O5V-NV-WZy"/>
-                                    <barButtonItem image="more" id="S2f-JG-qPR"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="sV9-zw-wdK"/>
                                 </items>
                             </toolbar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="10" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="gAm-Ly-ciF" userLabel="bottomTextField">
@@ -82,11 +71,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="hw2-ck-rxE" firstAttribute="top" secondItem="Ctw-KL-SYH" secondAttribute="bottom" id="0SO-XC-c1a"/>
                             <constraint firstItem="VyE-Tp-TWL" firstAttribute="leading" secondItem="1Ug-aj-RBX" secondAttribute="leadingMargin" constant="-20" id="110-xF-zNh"/>
                             <constraint firstItem="VEr-Ba-WH3" firstAttribute="top" secondItem="Ctw-KL-SYH" secondAttribute="bottom" constant="8" id="2BV-73-xvK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ctw-KL-SYH" secondAttribute="trailing" constant="-20" id="5P0-rA-9Cb"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="hw2-ck-rxE" secondAttribute="trailing" constant="-20" id="6hH-cD-Qc3"/>
                             <constraint firstItem="gAm-Ly-ciF" firstAttribute="centerX" secondItem="1Ug-aj-RBX" secondAttribute="centerX" id="6xp-eh-afc"/>
                             <constraint firstItem="1Lq-va-Zcv" firstAttribute="leading" secondItem="1Ug-aj-RBX" secondAttribute="leadingMargin" constant="-20" id="9rb-Gi-w1m"/>
                             <constraint firstItem="1Lq-va-Zcv" firstAttribute="top" secondItem="Ctw-KL-SYH" secondAttribute="bottom" id="Aql-eu-JkG"/>
@@ -99,8 +86,6 @@
                             <constraint firstAttribute="trailingMargin" secondItem="1Lq-va-Zcv" secondAttribute="trailing" constant="-20" id="H8Q-VZ-tJM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VyE-Tp-TWL" secondAttribute="trailing" constant="-20" id="KKQ-BM-uet"/>
                             <constraint firstItem="1Lq-va-Zcv" firstAttribute="top" secondItem="Taz-d7-Uhi" secondAttribute="bottom" constant="24" id="WFO-Rc-Mtn"/>
-                            <constraint firstItem="hw2-ck-rxE" firstAttribute="leading" secondItem="1Ug-aj-RBX" secondAttribute="leadingMargin" constant="-20" id="e1G-Vd-EYG"/>
-                            <constraint firstItem="VyE-Tp-TWL" firstAttribute="top" secondItem="hw2-ck-rxE" secondAttribute="bottom" id="g2T-5f-3CA"/>
                             <constraint firstItem="gAm-Ly-ciF" firstAttribute="top" secondItem="1Lq-va-Zcv" secondAttribute="bottom" constant="-55" id="gCN-R1-9UC"/>
                             <constraint firstItem="Ctw-KL-SYH" firstAttribute="top" secondItem="1Ug-aj-RBX" secondAttribute="topMargin" id="hNp-gf-9Gz"/>
                             <constraint firstItem="1Lq-va-Zcv" firstAttribute="top" secondItem="Ctw-KL-SYH" secondAttribute="bottom" id="hx3-dF-Cct"/>
@@ -124,14 +109,12 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="CroppableImageView" destination="hw2-ck-rxE" id="SaN-du-JiJ"/>
                         <outlet property="albumButton" destination="exh-Si-yOf" id="THv-e3-Bmb"/>
                         <outlet property="bottomTextField" destination="gAm-Ly-ciF" id="3nW-IC-9MQ"/>
                         <outlet property="bottomToolBar" destination="VyE-Tp-TWL" id="UPV-UR-1JS"/>
                         <outlet property="cameraButton" destination="KXX-Cu-HKe" id="aIh-h1-z9n"/>
                         <outlet property="cancelButton" destination="Ll7-QA-RwD" id="sgT-qY-ojL"/>
                         <outlet property="cropImage" destination="VyE-Tp-TWL" id="YjX-26-bOs"/>
-                        <outlet property="cropToolButton" destination="c6R-qB-F20" id="ZMe-S2-3qP"/>
                         <outlet property="imagePickerView" destination="1Lq-va-Zcv" id="cs1-uZ-bLB"/>
                         <outlet property="shareButton" destination="Otw-5b-ybI" id="HrO-eA-F88"/>
                         <outlet property="topTextField" destination="VEr-Ba-WH3" id="4Ck-rM-P0Q"/>
@@ -144,8 +127,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="crop" width="25" height="25"/>
-        <image name="more" width="27" height="29"/>
         <image name="stack o'photos" width="25" height="25"/>
     </resources>
 </document>

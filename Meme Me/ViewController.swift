@@ -11,10 +11,9 @@ import Foundation
 import AVFoundation
 
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, CroppableImageViewDelegateProtocol {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var imagePickerView: UIImageView!
-    @IBOutlet weak var cropView: CroppableImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var albumButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
@@ -141,16 +140,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         cropToolButton.enabled = haveValidCropRect
     }
 
-    @IBAction func cropButtonClicked(sender: UIBarButtonItem) {
-        if let croppedImage = cropView.croppedImage() {
-            self.imagePickerView.hidden = false
-                do {
-                    UIImageWriteToSavedPhotosAlbum(croppedImage, nil, nil, nil)
-                    self.imagePickerView.hidden = true
-            }
-        }
-    }
-    
     
     ///// MARK: Keyboard Functions
     // Copied per discussion thread: https://discussions.udacity.com/t/better-way-to-shift-the-view-for-keyboardwillshow-and-keyboardwillhide/36558
