@@ -43,15 +43,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NSStrokeWidthAttributeName : -5.0
     ]
     
-    let titleAttributes = [
-        NSStrokeColorAttributeName : UIColor.blackColor(),
-        NSFontAttributeName: UIFont(name: "AmericanTypewriter-CondensedBold", size: 40)!,
-        NSForegroundColorAttributeName: UIColor.whiteColor(),
-        NSStrokeWidthAttributeName : -5.0
-    ]
-    
-    var toggleState:Bool = false
-    
     enum TextFields {
         case topTextField
         case bottomTextField
