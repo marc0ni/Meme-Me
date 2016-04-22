@@ -8,7 +8,7 @@
 
 import UIKit
 import Foundation
-import AVFoundation
+//import AVFoundation
 
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
@@ -16,11 +16,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var albumButton: UIBarButtonItem!
+    @IBOutlet weak var fontPicker: UIBarButtonItem!
+   
+    
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
+    
     @IBOutlet weak var topToolBar: UIToolbar!
     @IBOutlet weak var bottomToolBar: UIToolbar!
-    @IBOutlet weak var cropToolButton: UIBarButtonItem!
+    
    
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
@@ -29,17 +33,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     //Copied from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
     let TOP_DEFAULT_TEXT = "TOP"
     let BOTTOM_DEFAULT_TEXT = "BOTTOM"
-    var cropImage: UIImage!
-    var imageCropView: UIView!
     
     let memeTextDelegate = MemeTextFieldDelegate()
     
-    let memeTextAttributes = [
+    var memeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor(),
         NSForegroundColorAttributeName : UIColor.whiteColor(),
         NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
         NSStrokeWidthAttributeName : -5.0
     ]
+    
+    let titleAttributes = [
+        NSStrokeColorAttributeName : UIColor.blackColor(),
+        NSFontAttributeName: UIFont(name: "AmericanTypewriter-CondensedBold", size: 40)!,
+        NSForegroundColorAttributeName: UIColor.whiteColor(),
+        NSStrokeWidthAttributeName : -5.0
+    ]
+    
+    var toggleState:Bool = false
     
     enum TextFields {
         case topTextField
@@ -66,10 +77,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //Modified from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
         if let _ = imagePickerView.image {
             shareButton.enabled = true
-            //cropToolButton.enabled = true
         } else {
             shareButton.enabled = false
-            //cropToolButton.enabled = false
         }
         
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
@@ -132,14 +141,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return [.AllButUpsideDown]
     }
     
-    ///// MARK: Crop Button Functions
-    
-    func haveValidCropRect(haveValidCropRect:Bool)
-    {
-        //println("In haveValidCropRect. Value = \(haveValidCropRect)")
-        cropToolButton.enabled = haveValidCropRect
-    }
-
     
     ///// MARK: Keyboard Functions
     // Copied per discussion thread: https://discussions.udacity.com/t/better-way-to-shift-the-view-for-keyboardwillshow-and-keyboardwillhide/36558
@@ -192,10 +193,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     ///// MARK: Memes Object Functions
     struct Meme {
-        var topTextField: String
-        var bottomTextField:String
-        var pickerViewImage: UIImage
-        var memedImage: UIImage
+        var topTextField: String!
+        var bottomTextField:String!
+        var pickerViewImage: UIImage!
+        var memedImage: UIImage!
     }
     
     func generateMemedImage() -> UIImage {
@@ -219,7 +220,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func save () {
         // Create the meme
         let memedImage = generateMemedImage()
-        _ = Meme(topTextField: topTextField.text!, bottomTextField: bottomTextField.text!, pickerViewImage:imagePickerView.image!, memedImage:memedImage)
+        let meme = Meme(topTextField: topTextField.text!, bottomTextField: bottomTextField.text!, pickerViewImage:imagePickerView.image!, memedImage:memedImage)
     }
     
     func cancel(){
@@ -233,6 +234,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         cancel()
     }
     
+    ///// MARK: Launches Font Picker
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        let meme = Meme(topTextField: topTextField.text!, bottomTextField: bottomTextField.text!, pickerViewImage:imagePickerView.image!, memedImage:memedImage)
+        }
+    
+    @IBAction func fontButtonPushed(sender: UIBarButtonItem) {
+        self.performSegueWithIdentifier("fontPickerPushed", sender: UIBarButtonItem.self)
+    }
 }
+
+
 
 

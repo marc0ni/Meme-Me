@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -41,6 +42,13 @@
                                     <barButtonItem image="stack o'photos" id="exh-Si-yOf">
                                         <connections>
                                             <action selector="pickAnImageFromAlbum:" destination="Wae-ZZ-vDP" id="bZG-I7-Eow"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Kxl-9e-UbF"/>
+                                    <barButtonItem image="text" id="5vi-t3-aFj">
+                                        <connections>
+                                            <action selector="fontButtonPushed:" destination="Wae-ZZ-vDP" id="7dr-f8-wYT"/>
+                                            <segue destination="cqc-iN-4pf" kind="presentation" identifier="fontPIckerPushed" id="81h-9g-b7B"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="SMG-2U-4Un"/>
@@ -114,7 +122,8 @@
                         <outlet property="bottomToolBar" destination="VyE-Tp-TWL" id="UPV-UR-1JS"/>
                         <outlet property="cameraButton" destination="KXX-Cu-HKe" id="aIh-h1-z9n"/>
                         <outlet property="cancelButton" destination="Ll7-QA-RwD" id="sgT-qY-ojL"/>
-                        <outlet property="cropImage" destination="VyE-Tp-TWL" id="YjX-26-bOs"/>
+                        <outlet property="fontButtonPushed" destination="5vi-t3-aFj" id="vst-zs-fNk"/>
+                        <outlet property="fontPicker" destination="5vi-t3-aFj" id="usc-Y4-vCv"/>
                         <outlet property="imagePickerView" destination="1Lq-va-Zcv" id="cs1-uZ-bLB"/>
                         <outlet property="shareButton" destination="Otw-5b-ybI" id="HrO-eA-F88"/>
                         <outlet property="topTextField" destination="VEr-Ba-WH3" id="4Ck-rM-P0Q"/>
@@ -125,8 +134,112 @@
             </objects>
             <point key="canvasLocation" x="255" y="348"/>
         </scene>
+        <!--Font Picker View Controller-->
+        <scene sceneID="5Rh-QT-AhG">
+            <objects>
+                <viewController id="cqc-iN-4pf" customClass="FontPickerViewController" customModule="Meme_Me" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="muL-dd-8GQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="mvm-nj-ukG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5At-sW-FTU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kfU-ni-Jbe">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Pick Font" id="nn8-yA-KsS">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="save" id="5D1-LT-ERd">
+                                            <connections>
+                                                <action selector="saveFont:" destination="cqc-iN-4pf" id="905-wx-taB"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="pE5-ft-EJd">
+                                            <connections>
+                                                <action selector="cancelAction:" destination="cqc-iN-4pf" id="da5-zv-DFW"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XKW-91-M8R">
+                                <rect key="frame" x="0.0" y="-216" width="320" height="216"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="cqc-iN-4pf" id="11y-6O-Vl0"/>
+                                    <outlet property="delegate" destination="cqc-iN-4pf" id="k2a-Qa-k4A"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="XKW-91-M8R" secondAttribute="trailing" constant="-20" id="GWy-nN-93g">
+                                <variation key="widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="XKW-91-M8R" firstAttribute="trailing" secondItem="kfU-ni-Jbe" secondAttribute="trailing" id="Hjk-y3-Ds1">
+                                <variation key="widthClass=compact" constant="-20"/>
+                            </constraint>
+                            <constraint firstAttribute="trailingMargin" secondItem="kfU-ni-Jbe" secondAttribute="trailing" constant="-20" id="TrJ-dR-jw6"/>
+                            <constraint firstItem="kfU-ni-Jbe" firstAttribute="leading" secondItem="5At-sW-FTU" secondAttribute="leadingMargin" constant="-20" id="b35-I0-tb7"/>
+                            <constraint firstItem="kfU-ni-Jbe" firstAttribute="top" secondItem="5At-sW-FTU" secondAttribute="topMargin" id="cWf-3S-ehN"/>
+                            <constraint firstItem="XKW-91-M8R" firstAttribute="centerX" secondItem="5At-sW-FTU" secondAttribute="centerX" id="eO0-PX-R6C"/>
+                            <constraint firstItem="XKW-91-M8R" firstAttribute="leading" secondItem="5At-sW-FTU" secondAttribute="leadingMargin" constant="-20" id="ePK-am-cto">
+                                <variation key="widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="XKW-91-M8R" firstAttribute="leading" secondItem="kfU-ni-Jbe" secondAttribute="leading" id="si6-Sc-Lgz">
+                                <variation key="widthClass=compact" constant="20"/>
+                            </constraint>
+                            <constraint firstItem="XKW-91-M8R" firstAttribute="centerY" secondItem="5At-sW-FTU" secondAttribute="centerY" id="xfz-PH-3EL"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="kfU-ni-Jbe"/>
+                                <exclude reference="XKW-91-M8R"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="GWy-nN-93g"/>
+                                <exclude reference="Hjk-y3-Ds1"/>
+                                <exclude reference="eO0-PX-R6C"/>
+                                <exclude reference="ePK-am-cto"/>
+                                <exclude reference="si6-Sc-Lgz"/>
+                                <exclude reference="xfz-PH-3EL"/>
+                                <exclude reference="TrJ-dR-jw6"/>
+                                <exclude reference="b35-I0-tb7"/>
+                                <exclude reference="cWf-3S-ehN"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="kfU-ni-Jbe"/>
+                                <include reference="XKW-91-M8R"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="GWy-nN-93g"/>
+                                <include reference="Hjk-y3-Ds1"/>
+                                <include reference="eO0-PX-R6C"/>
+                                <include reference="ePK-am-cto"/>
+                                <include reference="si6-Sc-Lgz"/>
+                                <include reference="xfz-PH-3EL"/>
+                                <include reference="TrJ-dR-jw6"/>
+                                <include reference="b35-I0-tb7"/>
+                                <include reference="cWf-3S-ehN"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="pE5-ft-EJd" id="HwC-pK-BNZ"/>
+                        <outlet property="pickerView" destination="XKW-91-M8R" id="iv8-di-b4k"/>
+                        <outlet property="saveButton" destination="5D1-LT-ERd" id="OG2-wf-sFm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dEj-VF-d4Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1260" y="348"/>
+        </scene>
     </scenes>
     <resources>
         <image name="stack o'photos" width="25" height="25"/>
+        <image name="text" width="25" height="25"/>
     </resources>
 </document>
