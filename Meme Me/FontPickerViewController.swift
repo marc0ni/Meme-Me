@@ -21,19 +21,25 @@ class FontPickerViewController: UIViewController, UIPickerViewDataSource, UIPick
         self.pickerView.delegate = self
     }
     
-    var fontName:String
     var fontMutableString = NSMutableAttributedString()
     //var fontAddAttribute:String
     
+    enum fontNames:String {
+        case AINileBold
+        case AmericanTypewriterCondensedBold
+        case AvenirNextCondensedBold
+        
+    }
+    
     func fontAddAttribute() {
-        switch fontName {
+        switch fontNames.self {
         case .AINileBold:
             fontMutableString.addAttribute(NSFontAttributeName, value:UIFont(name:"AINile-Bold", size: 40.0)!)
             
-        case .AmericanTypewriter-CondensedBold:
+        case .AmericanTypewriterCondensedBold:
             fontMutableString.addAttribute(NSFontAttributeName, value:UIFont(name:"AmericanTypewriter-CondensedBold", size: 40.0)!)
             
-        case .AvenirNextCondensed-Bold:
+        case .AvenirNextCondensedBold:
             fontMutableString.addAttribute(NSFontAttributeName, value:UIFont(name:"AvenirNextCondensed-Bold", size: 40.0)!)
             
         case .Bauhaus:
