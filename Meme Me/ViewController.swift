@@ -216,22 +216,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func cancelAction(sender: UIBarButtonItem) {
         cancel()
     }
-    
-    ///// MARK: Launches Font Picker
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if (segue.identifier == "fontPicker") {
-            let destinationVC:FontPickerViewController = segue.destinationViewController as! FontPickerViewController
-            destinationVC.topTextField.text = topTextField.text
-            destinationVC.bottomTextField.text = bottomTextField.text
-        }
-    }
-    
-    @IBAction func fontButtonPushed(sender: UIBarButtonItem) {
-        performSegueWithIdentifier("fontPicker", sender: self)
-    }
-    
-   }
+}
 
 
 
