@@ -17,6 +17,7 @@
 		38487A441C9E1442004B8CD5 /* Meme_MeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38487A431C9E1442004B8CD5 /* Meme_MeUITests.swift */; };
 		38487A521C9F0997004B8CD5 /* MemeTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38487A511C9F0997004B8CD5 /* MemeTextFieldDelegate.swift */; };
 		38925ACF1CBF43FE00B668D3 /* FontPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38925ACE1CBF43FE00B668D3 /* FontPickerViewController.swift */; };
+		38E1D3D91CCBFF4F002F86CE /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E1D3D81CCBFF4F002F86CE /* Meme.swift */; };
 		38FF39B61CA9FD2900ACF3BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38487A241C9E1442004B8CD5 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		38487A451C9E1442004B8CD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38487A511C9F0997004B8CD5 /* MemeTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeTextFieldDelegate.swift; sourceTree = "<group>"; };
 		38925ACE1CBF43FE00B668D3 /* FontPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontPickerViewController.swift; sourceTree = "<group>"; };
+		38E1D3D81CCBFF4F002F86CE /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 		38FF39B81CA9FD3200ACF3BB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +116,7 @@
 				38487A271C9E1442004B8CD5 /* Meme_Me.xcdatamodeld */,
 				38487A511C9F0997004B8CD5 /* MemeTextFieldDelegate.swift */,
 				38925ACE1CBF43FE00B668D3 /* FontPickerViewController.swift */,
+				38E1D3D81CCBFF4F002F86CE /* Meme.swift */,
 			);
 			path = "Meme Me";
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				38925ACF1CBF43FE00B668D3 /* FontPickerViewController.swift in Sources */,
 				38487A231C9E1442004B8CD5 /* ViewController.swift in Sources */,
 				38487A291C9E1442004B8CD5 /* Meme_Me.xcdatamodeld in Sources */,
+				38E1D3D91CCBFF4F002F86CE /* Meme.swift in Sources */,
 				38487A521C9F0997004B8CD5 /* MemeTextFieldDelegate.swift in Sources */,
 				38487A211C9E1442004B8CD5 /* AppDelegate.swift in Sources */,
 			);

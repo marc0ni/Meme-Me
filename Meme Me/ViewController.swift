@@ -17,15 +17,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var albumButton: UIBarButtonItem!
     @IBOutlet weak var fontPicker: UIBarButtonItem!
-   
-    
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     
     @IBOutlet weak var topToolBar: UIToolbar!
     @IBOutlet weak var bottomToolBar: UIToolbar!
-    
-   
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     
@@ -33,6 +29,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     //Copied from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
     let TOP_DEFAULT_TEXT = "TOP"
     let BOTTOM_DEFAULT_TEXT = "BOTTOM"
+    
+    var memedImage:UIImage!
     
     let memeTextDelegate = MemeTextFieldDelegate()
     
@@ -183,13 +181,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     ///// MARK: Memes Object Functions
-    struct Meme {
-        var topTextField: String!
-        var bottomTextField:String!
-        var pickerViewImage: UIImage!
-        var memedImage: UIImage!
-    }
-    
     func generateMemedImage() -> UIImage {
         
         hideStatusBarAndToolBar()
@@ -212,6 +203,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Create the meme
         let memedImage = generateMemedImage()
         let meme = Meme(topTextField: topTextField.text!, bottomTextField: bottomTextField.text!, pickerViewImage:imagePickerView.image!, memedImage:memedImage)
+        (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
     }
     
     func cancel(){
@@ -228,13 +220,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     ///// MARK: Launches Font Picker
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        let meme = Meme(topTextField: topTextField.text!, bottomTextField: bottomTextField.text!, pickerViewImage:imagePickerView.image!, memedImage:memedImage)
+        if (segue.identifier == "fontPicker") {
+            let destinationVC:FontPickerViewController = segue.destinationViewController as! FontPickerViewController
+            destinationVC.topTextField.text = topTextField.text
+            destinationVC.bottomTextField.text = bottomTextField.text
         }
+    }
     
     @IBAction func fontButtonPushed(sender: UIBarButtonItem) {
-        self.performSegueWithIdentifier("fontPickerPushed", sender: UIBarButtonItem.self)
+        performSegueWithIdentifier("fontPicker", sender: self)
     }
-}
+    
+   }
+
 
 
 

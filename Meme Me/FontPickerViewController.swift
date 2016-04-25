@@ -15,12 +15,45 @@ class FontPickerViewController: UIViewController, UIPickerViewDataSource, UIPick
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.pickerView.dataSource = self
         self.pickerView.delegate = self
     }
+    
+    var fontMutableString = NSMutableAttributedString()
+    
+    switch (fontAddAttribute) {
+    case .AINile-Bold:
+    fontMutableString.addAttribute(NSFontAttributeName, value:UIFont(name:"AINile-Bold", size: 40.0)!)
+    
+    case .AmericanTypewriter-CondensedBold:
+    fontMutableString.addAttribute(NSFontAttributeName, value:UIFont(name:"AmericanTypewriter-CondensedBold", size: 40.0)!)
+    
+    case .AvenirNextCondensed-Bold:
+    fontMutableString.addAttribute(NSFontAttributeName, value:UIFont(name:"AvenirNextCondensed-Bold", size: 40.0)!)
+    
+    case .Bauhaus:
+    fontMutableString.addAttribute(NSFontAttributeName, value:UIFont(name:"Bauhaus", size: 40.0)!)
+    
+    case .Cambria:
+    fontMutableString.addAttribute(NSFontAttributeName, value:UIFont(name:"Cambria", size: 40.0)!)
+    
+    case .DINCondensed-Bold:
+    fontMutableString.addAttribute(NSFontAttributeName, value:UIFont(name:"DINCondensed-Bold", size: 40.0)!)
+    
+    case .Futura-CondensedMedium:
+    fontMutableString.addAttribute(NSFontAttributeName, value:UIFont(name:"Futura-CondensedMedium", size: 40.0)!)
+    
+    case .HelveticaNeue-CondensedBlack:
+    fontMutableString.addAttribute(NSFontAttributeName, value:UIFont(name:"HelveticaNeue-CondensedBlack", size: 40.0)!)
+    
+    case .Optima-Bold:
+    fontMutableString.addAttribute(NSFontAttributeName, value:UIFont(name:"Optima-Bold", size: 40.0)!)
+    }
+    
+    var topTextField:UITextField!
+    var bottomTextField:UITextField!
     
     let pickerDataSource = [
         ["AINile-Bold", "AmericanTypewriter-CondensedBold", "AvenirNextCondensed-Bold", "Bauhaus",  "Cambria", "DINCondensed-Bold", "Futura-CondensedMedium ", "HelveticaNeue-CondensedBlack", "Optima-Bold"]

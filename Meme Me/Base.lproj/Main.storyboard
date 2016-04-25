@@ -47,7 +47,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Kxl-9e-UbF"/>
                                     <barButtonItem image="text" id="5vi-t3-aFj">
                                         <connections>
-                                            <action selector="fontButtonPushed:" destination="Wae-ZZ-vDP" id="7dr-f8-wYT"/>
+                                            <action selector="fontButtonPushed:" destination="Wae-ZZ-vDP" id="ZMe-wi-FnS"/>
                                             <segue destination="cqc-iN-4pf" kind="presentation" identifier="fontPIckerPushed" id="81h-9g-b7B"/>
                                         </connections>
                                     </barButtonItem>
