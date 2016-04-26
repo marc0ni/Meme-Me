@@ -16,7 +16,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var albumButton: UIBarButtonItem!
-    @IBOutlet weak var fontPicker: UIBarButtonItem!
+    @IBOutlet weak var fontButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     
@@ -230,10 +230,4 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func fontButtonPushed(sender: UIBarButtonItem) {
         performSegueWithIdentifier("fontPicker", sender: self)
     }
-    
-   }
-
-
-
-
-
+}

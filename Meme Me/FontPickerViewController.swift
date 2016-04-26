@@ -21,53 +21,10 @@ class FontPickerViewController: UIViewController, UIPickerViewDataSource, UIPick
         self.pickerView.delegate = self
     }
     
-    var fontMutableString = NSMutableAttributedString()
-    //var fontAddAttribute:String
-    
-    enum fontNames:String {
-        case AINileBold
-        case AmericanTypewriterCondensedBold
-        case AvenirNextCondensedBold
-        
-    }
-    
-    func fontAddAttribute() {
-        switch fontNames.self {
-        case .AINileBold:
-            fontMutableString.addAttribute(NSFontAttributeName, value:UIFont(name:"AINile-Bold", size: 40.0)!)
-            
-        case .AmericanTypewriterCondensedBold:
-            fontMutableString.addAttribute(NSFontAttributeName, value:UIFont(name:"AmericanTypewriter-CondensedBold", size: 40.0)!)
-            
-        case .AvenirNextCondensedBold:
-            fontMutableString.addAttribute(NSFontAttributeName, value:UIFont(name:"AvenirNextCondensed-Bold", size: 40.0)!)
-            
-        case .Bauhaus:
-            fontMutableString.addAttribute(NSFontAttributeName, value:UIFont(name:"Bauhaus", size: 40.0)!)
-            
-        case .Cambria:
-            fontMutableString.addAttribute(NSFontAttributeName, value:UIFont(name:"Cambria", size: 40.0)!)
-            
-        case .DINCondensed-Bold:
-            fontMutableString.addAttribute(NSFontAttributeName, value:UIFont(name:"DINCondensed-Bold", size: 40.0)!)
-            
-        case .Futura-CondensedMedium:
-            fontMutableString.addAttribute(NSFontAttributeName, value:UIFont(name:"Futura-CondensedMedium", size: 40.0)!)
-            
-        case .HelveticaNeue-CondensedBlack:
-            fontMutableString.addAttribute(NSFontAttributeName, value:UIFont(name:"HelveticaNeue-CondensedBlack", size: 40.0)!)
-            
-        case .Optima-Bold:
-            fontMutableString.addAttribute(NSFontAttributeName, value:UIFont(name:"Optima-Bold", size: 40.0)!)
-            
-        default:
-            break
-    }
-    
     var topTextField:UITextField!
     var bottomTextField:UITextField!
     
-    let pickerDataSource = [
+    var pickerDataSource = [
         ["AINile-Bold", "AmericanTypewriter-CondensedBold", "AvenirNextCondensed-Bold", "Bauhaus",  "Cambria", "DINCondensed-Bold", "Futura-CondensedMedium ", "HelveticaNeue-CondensedBlack", "Optima-Bold"]
     ]
     
@@ -87,10 +44,10 @@ class FontPickerViewController: UIViewController, UIPickerViewDataSource, UIPick
         
     }
     
-    @IBAction func saveFont(sender: UIBarButtonItem) {
+    /*@IBAction func saveFont(sender: UIBarButtonItem) {
         topTextField.addAttribute(NSFontAttributeName, value: UIFont(name: pickerDataSource.component.row, size: 40.0))!
         bottomTextField.addAttribute(NSFontAttributeName, value: UIFont(name: pickerDataSource.component.row, size: 40.0))!
-    }
+    }*/
     
     @IBAction func cancelAction(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
