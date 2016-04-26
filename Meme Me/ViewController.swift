@@ -114,11 +114,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         activityViewController.completionWithItemsHandler = { (s: String?, ok: Bool, items: [AnyObject]?, err: NSError?) -> Void in
             if ok {
                 self.save()
-                NSLog("Successfully saved image.")
+                print("Successfully saved image.")
             } else if err != nil {
-                NSLog("Error: \(err)")
+                print("Error: \(err)")
             } else {
-                NSLog("Unknown cancel -- user likely clicked \"cancel\" to dismiss activity view.")
+                print("Unknown cancel -- user likely clicked \"cancel\" to dismiss activity view.")
             }
         }
         
@@ -136,9 +136,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func keyboardWillShow(notification: NSNotification) -> Void{
         if bottomTextField.isFirstResponder(){
             self.view.frame.origin.y -= getKeyboardHeight(notification);
-        }
-        else if topTextField.isFirstResponder(){
-            self.view.frame.origin.y = 0;
         }
     }
     

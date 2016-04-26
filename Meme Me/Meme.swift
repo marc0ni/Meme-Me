@@ -10,12 +10,12 @@ import Foundation
 import UIKit 
 
 struct Meme {
-    var topTextField: NSString!
-    var bottomTextField:NSString!
+    var topTextField: String!
+    var bottomTextField:String!
     var pickerViewImage: UIImage!
     var memedImage: UIImage!
     
-    init(topTextField:NSString, bottomTextField:NSString,
+    init(topTextField:String, bottomTextField:String,
         pickerViewImage: UIImage, memedImage: UIImage){
             self.topTextField = topTextField
             self.bottomTextField = bottomTextField
