@@ -16,7 +16,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var albumButton: UIBarButtonItem!
-    @IBOutlet weak var fontButton: UIBarButtonItem!
+    @IBOutlet weak var fontPicker: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     
@@ -34,12 +34,38 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     let memeTextDelegate = MemeTextFieldDelegate()
     
-    var memeTextAttributes = [
-        NSStrokeColorAttributeName : UIColor.blackColor(),
-        NSForegroundColorAttributeName : UIColor.whiteColor(),
-        NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSStrokeWidthAttributeName : -5.0
-    ]
+    func setParagraphStyle() {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = NSTextAlignment.Center
+    }
+    
+    /* TO DO: add property for "font value" to be used later with Font Picker; "inputString" will become
+    access point for  */
+    func textAttributer (inputString:String, mySize: Float) -> (NSMutableAttributedString) {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = NSTextAlignment.Center
+        
+        
+        //TO DO: NSFontAttributeName will become variable with Font Picker
+        let memeTextAttributes:Dictionary = [
+            NSParagraphStyleAttributeName : paragraphStyle,
+            NSStrokeColorAttributeName : UIColor.blackColor(),
+            NSForegroundColorAttributeName : UIColor.whiteColor(),
+            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+            NSStrokeWidthAttributeName : -5.0,
+        ]
+        
+        let attributedString = NSMutableAttributedString (string: inputString, attributes:memeTextAttributes)
+        
+        return attributedString
+    }
+    
+    /*var memeTextAttributes = [
+    NSStrokeColorAttributeName : UIColor.blackColor(),
+    NSForegroundColorAttributeName : UIColor.whiteColor(),
+    NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+    NSStrokeWidthAttributeName : -5.0
+    ]*/
     
     enum TextFields {
         case topTextField
@@ -106,7 +132,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             dismissViewControllerAnimated(true, completion: nil)
         }
     }
-        
+    
     //Copied from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
     @IBAction func shareAction(sender: UIBarButtonItem) {
         let memedImage = generateMemedImage()
@@ -114,11 +140,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         activityViewController.completionWithItemsHandler = { (s: String?, ok: Bool, items: [AnyObject]?, err: NSError?) -> Void in
             if ok {
                 self.save()
-                NSLog("Successfully saved image.")
+                print("Successfully saved image.")
             } else if err != nil {
-                NSLog("Error: \(err)")
+                print("Error: \(err)")
             } else {
-                NSLog("Unknown cancel -- user likely clicked \"cancel\" to dismiss activity view.")
+                print("Unknown cancel -- user likely clicked \"cancel\" to dismiss activity view.")
             }
         }
         
@@ -136,9 +162,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func keyboardWillShow(notification: NSNotification) -> Void{
         if bottomTextField.isFirstResponder(){
             self.view.frame.origin.y -= getKeyboardHeight(notification);
-        }
-        else if topTextField.isFirstResponder(){
-            self.view.frame.origin.y = 0;
         }
     }
     
@@ -215,19 +238,5 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func cancelAction(sender: UIBarButtonItem) {
         cancel()
-    }
-    
-    ///// MARK: Launches Font Picker
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if (segue.identifier == "fontPicker") {
-            let destinationVC:FontPickerViewController = segue.destinationViewController as! FontPickerViewController
-            destinationVC.topTextField.text = topTextField.text
-            destinationVC.bottomTextField.text = bottomTextField.text
-        }
-    }
-    
-    @IBAction func fontButtonPushed(sender: UIBarButtonItem) {
-        performSegueWithIdentifier("fontPicker", sender: self)
     }
 }
