@@ -34,11 +34,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     let memeTextDelegate = MemeTextFieldDelegate()
     
-    var memeTextAttributes = [
+    let memeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor(),
         NSForegroundColorAttributeName : UIColor.whiteColor(),
         NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSStrokeWidthAttributeName : -5.0
+        NSStrokeWidthAttributeName : -5.0,
     ]
     
     enum TextFields {
@@ -49,12 +49,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
         topTextField.text = TOP_DEFAULT_TEXT
         bottomTextField.text = BOTTOM_DEFAULT_TEXT
-        
+                
         topTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.defaultTextAttributes = memeTextAttributes
+        
+        topTextField.textAlignment = .Center
+        bottomTextField.textAlignment = .Center
         
         self.topTextField.delegate = memeTextDelegate
         self.bottomTextField.delegate = memeTextDelegate
