@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MemeEditorViewController.swift
 //  Meme Me
 //
 //  Created by Mark Lindamood on 3/19/16.
@@ -11,12 +11,11 @@ import Foundation
 //import AVFoundation
 
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var albumButton: UIBarButtonItem!
-    @IBOutlet weak var fontPicker: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     
@@ -31,6 +30,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     let BOTTOM_DEFAULT_TEXT = "BOTTOM"
     
     var memedImage:UIImage!
+    var preview:Bool = false
     
     let memeTextDelegate = MemeTextFieldDelegate()
     
@@ -60,6 +60,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         self.topTextField.delegate = memeTextDelegate
         self.bottomTextField.delegate = memeTextDelegate
+        
+        subscribeToKeyboardNotifications()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -73,14 +75,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
-        subscribeToKeyboardNotifications()
+        ()
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        unsubscribeFromKeyboardNotifications()
     }
     
+    deinit {
+        unsubscribeFromKeyboardNotifications()
+    }
     
     ///// MARK: ImagePicker Functions
     //Copied from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
@@ -123,7 +127,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 print("Unknown cancel -- user likely clicked \"cancel\" to dismiss activity view.")
             }
         }
-        
         presentViewController(activityViewController, animated: true, completion: nil)
     }
     
@@ -137,7 +140,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // Copied per discussion thread: https://discussions.udacity.com/t/better-way-to-shift-the-view-for-keyboardwillshow-and-keyboardwillhide/36558
     func keyboardWillShow(notification: NSNotification) -> Void{
         if bottomTextField.isFirstResponder(){
-            self.view.frame.origin.y -= getKeyboardHeight(notification);
+            view.frame.origin.y -= getKeyboardHeight(notification)
         }
     }
     

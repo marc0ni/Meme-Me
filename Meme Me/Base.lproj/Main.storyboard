@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Meme Editor View Controller-->
         <scene sceneID="eqq-zL-JZJ">
             <objects>
-                <viewController id="Wae-ZZ-vDP" customClass="ViewController" customModule="Meme_Me" sceneMemberID="viewController">
+                <viewController id="Wae-ZZ-vDP" customClass="MemeEditorViewController" customModule="Meme_Me" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Taz-d7-Uhi"/>
                         <viewControllerLayoutGuide type="bottom" id="hSZ-rN-6yA"/>
@@ -32,7 +32,7 @@
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="QiG-6g-geN"/>
-                                    <barButtonItem systemItem="camera" id="KXX-Cu-HKe">
+                                    <barButtonItem image="camera" id="KXX-Cu-HKe">
                                         <connections>
                                             <action selector="pickAnImageFromCamera:" destination="Wae-ZZ-vDP" id="sLZ-sT-BMs"/>
                                         </connections>
@@ -43,7 +43,7 @@
                                             <action selector="pickAnImageFromAlbum:" destination="Wae-ZZ-vDP" id="bZG-I7-Eow"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="SMG-2U-4Un"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ihs-x4-h2O"/>
                                 </items>
                             </toolbar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="10" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="gAm-Ly-ciF" userLabel="bottomTextField">
@@ -109,13 +109,13 @@
                                 <exclude reference="B3U-t3-adI"/>
                                 <exclude reference="X8e-LH-DwR"/>
                                 <exclude reference="oID-3O-5xf"/>
-                                <exclude reference="Mt4-Un-vij"/>
-                                <exclude reference="tgp-Rx-jF3"/>
                                 <exclude reference="C9M-G2-dgi"/>
                                 <exclude reference="GTB-SB-lkE"/>
                                 <exclude reference="Svc-yD-ugQ"/>
                                 <exclude reference="sQ9-cJ-O2X"/>
                                 <exclude reference="yoH-KH-Izn"/>
+                                <exclude reference="Mt4-Un-vij"/>
+                                <exclude reference="tgp-Rx-jF3"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -123,9 +123,9 @@
                                 <include reference="B3U-t3-adI"/>
                                 <include reference="X8e-LH-DwR"/>
                                 <include reference="oID-3O-5xf"/>
+                                <include reference="Svc-yD-ugQ"/>
                                 <include reference="Mt4-Un-vij"/>
                                 <include reference="tgp-Rx-jF3"/>
-                                <include reference="Svc-yD-ugQ"/>
                             </mask>
                         </variation>
                     </view>
@@ -147,6 +147,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera" width="25" height="25"/>
         <image name="stack" width="25" height="25"/>
     </resources>
 </document>
