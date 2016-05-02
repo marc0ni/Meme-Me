@@ -18,6 +18,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var albumButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
+    @IBOutlet weak var fontButton: UIBarButtonItem!
     
     @IBOutlet weak var topToolBar: UIToolbar!
     @IBOutlet weak var bottomToolBar: UIToolbar!
@@ -213,6 +214,12 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         showStatusBarAndToolbar()
         viewDidLoad()
         shareButton.enabled = false
+    }
+    
+    @IBAction func fontPickerAction(sender: UIBarButtonItem) {
+        self.performSegueWithIdentifier("fontPickerPushed",
+            sender: sender)
+        
     }
     
     @IBAction func cancelAction(sender: UIBarButtonItem) {

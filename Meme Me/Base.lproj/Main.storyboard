@@ -47,7 +47,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Kxl-9e-UbF"/>
                                     <barButtonItem image="text" id="5vi-t3-aFj">
                                         <connections>
-                                            <action selector="fontButtonPushed:" destination="Wae-ZZ-vDP" id="Hy5-8W-8Sn"/>
+                                            <action selector="fontPickerAction:" destination="Wae-ZZ-vDP" id="Uhz-aj-Pc1"/>
                                             <segue destination="cqc-iN-4pf" kind="presentation" identifier="fontPIckerPushed" id="81h-9g-b7B"/>
                                         </connections>
                                     </barButtonItem>
@@ -118,13 +118,13 @@
                                 <exclude reference="KfG-3y-RSw"/>
                                 <exclude reference="VVW-bH-jOT"/>
                                 <exclude reference="qF8-bG-YVp"/>
-                                <exclude reference="7hH-q0-f7G"/>
-                                <exclude reference="MeF-Qp-2Lh"/>
                                 <exclude reference="C9M-G2-dgi"/>
                                 <exclude reference="GTB-SB-lkE"/>
                                 <exclude reference="sQ9-cJ-O2X"/>
                                 <exclude reference="uuO-tJ-GwZ"/>
                                 <exclude reference="yoH-KH-Izn"/>
+                                <exclude reference="7hH-q0-f7G"/>
+                                <exclude reference="MeF-Qp-2Lh"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -132,9 +132,9 @@
                                 <include reference="KfG-3y-RSw"/>
                                 <include reference="VVW-bH-jOT"/>
                                 <include reference="qF8-bG-YVp"/>
+                                <include reference="uuO-tJ-GwZ"/>
                                 <include reference="7hH-q0-f7G"/>
                                 <include reference="MeF-Qp-2Lh"/>
-                                <include reference="uuO-tJ-GwZ"/>
                             </mask>
                         </variation>
                     </view>
@@ -144,7 +144,7 @@
                         <outlet property="bottomToolBar" destination="VyE-Tp-TWL" id="UPV-UR-1JS"/>
                         <outlet property="cameraButton" destination="KXX-Cu-HKe" id="aIh-h1-z9n"/>
                         <outlet property="cancelButton" destination="Ll7-QA-RwD" id="sgT-qY-ojL"/>
-                        <outlet property="fontButton" destination="5vi-t3-aFj" id="1a8-pp-KE8"/>
+                        <outlet property="fontButton" destination="5vi-t3-aFj" id="LOa-9I-bVf"/>
                         <outlet property="imagePickerView" destination="1Lq-va-Zcv" id="cs1-uZ-bLB"/>
                         <outlet property="shareButton" destination="Otw-5b-ybI" id="HrO-eA-F88"/>
                         <outlet property="topTextField" destination="VEr-Ba-WH3" id="4Ck-rM-P0Q"/>
@@ -171,11 +171,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
                                     <navigationItem title="Pick Font" id="nn8-yA-KsS">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="save" id="5D1-LT-ERd">
-                                            <connections>
-                                                <action selector="saveFont:" destination="cqc-iN-4pf" id="905-wx-taB"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="save" id="5D1-LT-ERd"/>
                                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="pE5-ft-EJd">
                                             <connections>
                                                 <action selector="cancelAction:" destination="cqc-iN-4pf" id="da5-zv-DFW"/>
