@@ -16,7 +16,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var albumButton: UIBarButtonItem!
-    @IBOutlet weak var fontPicker: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     
@@ -31,41 +30,16 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     let BOTTOM_DEFAULT_TEXT = "BOTTOM"
     
     var memedImage:UIImage!
+    var preview:Bool = false
     
     let memeTextDelegate = MemeTextFieldDelegate()
     
-    func setParagraphStyle() {
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = NSTextAlignment.Center
-    }
-    
-    /* TO DO: add property for "font value" to be used later with Font Picker; "inputString" will become
-    access point for  */
-    func textAttributer (inputString:String, mySize: Float) -> (NSMutableAttributedString) {
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = NSTextAlignment.Center
-        
-        
-        //TO DO: NSFontAttributeName will become variable with Font Picker
-        let memeTextAttributes:Dictionary = [
-            NSParagraphStyleAttributeName : paragraphStyle,
-            NSStrokeColorAttributeName : UIColor.blackColor(),
-            NSForegroundColorAttributeName : UIColor.whiteColor(),
-            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-            NSStrokeWidthAttributeName : -5.0,
-        ]
-        
-        let attributedString = NSMutableAttributedString (string: inputString, attributes:memeTextAttributes)
-        
-        return attributedString
-    }
-    
-    /*var memeTextAttributes = [
-    NSStrokeColorAttributeName : UIColor.blackColor(),
-    NSForegroundColorAttributeName : UIColor.whiteColor(),
-    NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-    NSStrokeWidthAttributeName : -5.0
-    ]*/
+    let memeTextAttributes = [
+        NSStrokeColorAttributeName : UIColor.blackColor(),
+        NSForegroundColorAttributeName : UIColor.whiteColor(),
+        NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        NSStrokeWidthAttributeName : -5.0,
+    ]
     
     enum TextFields {
         case topTextField
@@ -75,15 +49,19 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
         topTextField.text = TOP_DEFAULT_TEXT
         bottomTextField.text = BOTTOM_DEFAULT_TEXT
         
         topTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.defaultTextAttributes = memeTextAttributes
         
+        topTextField.textAlignment = .Center
+        bottomTextField.textAlignment = .Center
+        
         self.topTextField.delegate = memeTextDelegate
         self.bottomTextField.delegate = memeTextDelegate
+        
+        subscribeToKeyboardNotifications()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -97,14 +75,16 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         }
         
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
-        subscribeToKeyboardNotifications()
+        ()
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        unsubscribeFromKeyboardNotifications()
     }
     
+    deinit {
+        unsubscribeFromKeyboardNotifications()
+    }
     
     ///// MARK: ImagePicker Functions
     //Copied from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
@@ -147,7 +127,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
                 print("Unknown cancel -- user likely clicked \"cancel\" to dismiss activity view.")
             }
         }
-        
         presentViewController(activityViewController, animated: true, completion: nil)
     }
     
@@ -161,7 +140,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     // Copied per discussion thread: https://discussions.udacity.com/t/better-way-to-shift-the-view-for-keyboardwillshow-and-keyboardwillhide/36558
     func keyboardWillShow(notification: NSNotification) -> Void{
         if bottomTextField.isFirstResponder(){
-            self.view.frame.origin.y -= getKeyboardHeight(notification);
+            view.frame.origin.y -= getKeyboardHeight(notification)
         }
     }
     
@@ -240,3 +219,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         cancel()
     }
 }
+
+
+
+
+

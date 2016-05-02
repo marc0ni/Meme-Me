@@ -7,10 +7,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Meme Editor View Controller-->
         <scene sceneID="eqq-zL-JZJ">
             <objects>
-                <viewController id="Wae-ZZ-vDP" customClass="ViewController" customModule="Meme_Me" sceneMemberID="viewController">
+                <viewController id="Wae-ZZ-vDP" customClass="MemeEditorViewController" customModule="Meme_Me" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Taz-d7-Uhi"/>
                         <viewControllerLayoutGuide type="bottom" id="hSZ-rN-6yA"/>
@@ -83,6 +83,7 @@
                             <constraint firstItem="VEr-Ba-WH3" firstAttribute="top" secondItem="Ctw-KL-SYH" secondAttribute="bottom" constant="8" id="2BV-73-xvK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ctw-KL-SYH" secondAttribute="trailing" constant="-20" id="5P0-rA-9Cb"/>
                             <constraint firstItem="gAm-Ly-ciF" firstAttribute="centerX" secondItem="1Ug-aj-RBX" secondAttribute="centerX" id="6xp-eh-afc"/>
+                            <constraint firstItem="gAm-Ly-ciF" firstAttribute="trailing" secondItem="1Ug-aj-RBX" secondAttribute="trailingMargin" id="7hH-q0-f7G"/>
                             <constraint firstItem="1Lq-va-Zcv" firstAttribute="leading" secondItem="1Ug-aj-RBX" secondAttribute="leadingMargin" constant="-20" id="9rb-Gi-w1m"/>
                             <constraint firstItem="1Lq-va-Zcv" firstAttribute="top" secondItem="Ctw-KL-SYH" secondAttribute="bottom" id="Aql-eu-JkG"/>
                             <constraint firstItem="VyE-Tp-TWL" firstAttribute="top" secondItem="1Lq-va-Zcv" secondAttribute="bottom" id="BLW-aH-E6x"/>
@@ -93,6 +94,9 @@
                             <constraint firstItem="VyE-Tp-TWL" firstAttribute="top" secondItem="1Lq-va-Zcv" secondAttribute="bottom" id="GTB-SB-lkE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1Lq-va-Zcv" secondAttribute="trailing" constant="-20" id="H8Q-VZ-tJM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VyE-Tp-TWL" secondAttribute="trailing" constant="-20" id="KKQ-BM-uet"/>
+                            <constraint firstItem="VEr-Ba-WH3" firstAttribute="leading" secondItem="1Ug-aj-RBX" secondAttribute="leadingMargin" id="KfG-3y-RSw"/>
+                            <constraint firstItem="gAm-Ly-ciF" firstAttribute="leading" secondItem="1Ug-aj-RBX" secondAttribute="leadingMargin" id="MeF-Qp-2Lh"/>
+                            <constraint firstItem="VEr-Ba-WH3" firstAttribute="trailing" secondItem="1Ug-aj-RBX" secondAttribute="trailingMargin" id="VVW-bH-jOT"/>
                             <constraint firstItem="1Lq-va-Zcv" firstAttribute="top" secondItem="Taz-d7-Uhi" secondAttribute="bottom" constant="24" id="WFO-Rc-Mtn"/>
                             <constraint firstItem="gAm-Ly-ciF" firstAttribute="top" secondItem="1Lq-va-Zcv" secondAttribute="bottom" constant="-55" id="gCN-R1-9UC"/>
                             <constraint firstItem="Ctw-KL-SYH" firstAttribute="top" secondItem="1Ug-aj-RBX" secondAttribute="topMargin" id="hNp-gf-9Gz"/>
@@ -100,8 +104,10 @@
                             <constraint firstItem="1Lq-va-Zcv" firstAttribute="top" secondItem="Ctw-KL-SYH" secondAttribute="bottom" id="lHt-G5-8nP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1Lq-va-Zcv" secondAttribute="trailing" constant="-20" id="lMH-tT-OBE"/>
                             <constraint firstItem="VEr-Ba-WH3" firstAttribute="centerX" secondItem="1Ug-aj-RBX" secondAttribute="centerX" id="oaV-xK-M1c"/>
+                            <constraint firstItem="VEr-Ba-WH3" firstAttribute="top" secondItem="Ctw-KL-SYH" secondAttribute="bottom" constant="8" id="qF8-bG-YVp"/>
                             <constraint firstItem="VyE-Tp-TWL" firstAttribute="top" secondItem="1Lq-va-Zcv" secondAttribute="bottom" id="sQ9-cJ-O2X"/>
                             <constraint firstItem="VEr-Ba-WH3" firstAttribute="top" secondItem="Taz-d7-Uhi" secondAttribute="bottom" constant="32" id="tjv-vj-3tZ"/>
+                            <constraint firstItem="VyE-Tp-TWL" firstAttribute="top" secondItem="gAm-Ly-ciF" secondAttribute="bottom" constant="7" id="uuO-tJ-GwZ"/>
                             <constraint firstItem="VyE-Tp-TWL" firstAttribute="top" secondItem="1Lq-va-Zcv" secondAttribute="bottom" id="yoH-KH-Izn"/>
                         </constraints>
                         <variation key="default">
@@ -109,10 +115,26 @@
                                 <exclude reference="BaM-Ee-Lzb"/>
                                 <exclude reference="lHt-G5-8nP"/>
                                 <exclude reference="lMH-tT-OBE"/>
+                                <exclude reference="KfG-3y-RSw"/>
+                                <exclude reference="VVW-bH-jOT"/>
+                                <exclude reference="qF8-bG-YVp"/>
+                                <exclude reference="7hH-q0-f7G"/>
+                                <exclude reference="MeF-Qp-2Lh"/>
                                 <exclude reference="C9M-G2-dgi"/>
                                 <exclude reference="GTB-SB-lkE"/>
                                 <exclude reference="sQ9-cJ-O2X"/>
+                                <exclude reference="uuO-tJ-GwZ"/>
                                 <exclude reference="yoH-KH-Izn"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="KfG-3y-RSw"/>
+                                <include reference="VVW-bH-jOT"/>
+                                <include reference="qF8-bG-YVp"/>
+                                <include reference="7hH-q0-f7G"/>
+                                <include reference="MeF-Qp-2Lh"/>
+                                <include reference="uuO-tJ-GwZ"/>
                             </mask>
                         </variation>
                     </view>
