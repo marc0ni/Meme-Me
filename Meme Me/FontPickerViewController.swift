@@ -23,7 +23,7 @@ class FontPickerViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     var topTextField:UITextField!
     var bottomTextField:UITextField!
-    var selectedFont:Int = 0
+    //var selectedFont:Int = 0
     
     // Modified from http://stackoverflow.com/questions/30025481/take-data-from-enum-to-show-on-uipickerview-swift
     enum Fonts: Int {
@@ -49,7 +49,6 @@ class FontPickerViewController: UIViewController, UIPickerViewDataSource, UIPick
             case .FuturaCndMed : return "Futura-CondensedMedium"
             case .HelveticaNeueCndBlk : return "HelveticaNeue-CondensedBlack"
             case .OptimaBold : return "Optima-Bold"
-            //default: return ""
             }
         }
     }
@@ -66,9 +65,29 @@ class FontPickerViewController: UIViewController, UIPickerViewDataSource, UIPick
         return Fonts(rawValue: row)?.description
     }
     
-    /*func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
-        selectedFont
-    }*/
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
+        switch (row) {
+        case 0: "AINile-Bold";
+        break;
+        case 1: "AmericanTypewriter-CondensedBold";
+        break;
+        case 2: "AvenirNextCondensed-Bold";
+        break;
+        case 3: "Bauhaus";
+        break;
+        case 4: "Cambria";
+        break;
+        case 5: "DINCondensedBold";
+        break;
+        case 5: "Futura-CondensedMedium";
+        break;
+        case 6: "HelveticaNeue-CondensedBlack";
+        break;
+        case 7: "Optima-Bold";
+        break;
+        default: break;
+        }
+    }
     
     @IBAction func cancelAction(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
