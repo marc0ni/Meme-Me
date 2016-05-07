@@ -6,9 +6,8 @@
       "scale" : "2x"
     },
     {
-      "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "MemeMe.png",
+      "size" : "29x29",
       "scale" : "3x"
     },
     {
@@ -22,8 +21,9 @@
       "scale" : "3x"
     },
     {
-      "idiom" : "iphone",
       "size" : "60x60",
+      "idiom" : "iphone",
+      "filename" : "Icon-120.png",
       "scale" : "2x"
     },
     {

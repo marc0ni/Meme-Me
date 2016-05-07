@@ -32,6 +32,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     var memedImage:UIImage!
     var preview:Bool = false
     
+    var meme: Meme!
+    
     let memeTextDelegate = MemeTextFieldDelegate()
     
     let memeTextAttributes = [

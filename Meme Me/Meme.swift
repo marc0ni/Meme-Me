@@ -23,3 +23,7 @@ struct Meme {
             self.memedImage = memedImage
     }
 }
+
+extension Meme {
+    static var allMemes = [Meme]()
+}

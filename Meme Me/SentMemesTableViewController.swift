@@ -13,12 +13,15 @@ class SentMemesTableViewController: UITableViewController {
     var memes: [Meme] {
         return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
     }
+    
+    // This is an array of Villain instances
+    let allMemes = Meme.allMemes
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        self.clearsSelectionOnViewWillAppear = false
 
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
@@ -32,23 +35,29 @@ class SentMemesTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.allMemes.count
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("MemeTableCell", forIndexPath: indexPath)
+        let meme = self.allMemes[indexPath.row]
 
         // Configure the cell...
-
+        cell.textLabel?.text = meme.topTextField
+        cell.imageView?.image = UIImage(named:"meme.pickerViewImage")
+        
+        if let detailTextLabel = cell.detailTextLabel {
+            detailTextLabel.text = meme.bottomTextField
+        }
         return cell
     }
-    */
+    
 
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
@@ -74,6 +83,12 @@ class SentMemesTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
+        detailController.meme = self.allMemes(indexPath.row)
+        self.navigationController!.pushViewController(detailController, animated: true)
     }
     
 
