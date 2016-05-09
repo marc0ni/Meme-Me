@@ -26,20 +26,21 @@
                             <outlet property="delegate" destination="KmC-pB-nlx" id="DIM-aG-4QU"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="4tc-aU-TUn" userLabel="Table"/>
+                    <navigationItem key="navigationItem" title="Memes Sent" id="4tc-aU-TUn" userLabel="Table"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hZe-Ym-fYZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="429" y="-787"/>
+            <point key="canvasLocation" x="-183" y="-637"/>
         </scene>
         <!--Tables-->
         <scene sceneID="fcB-ga-qcN">
             <objects>
                 <navigationController id="O5m-Qm-JSx" userLabel="Tables" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Table" image="table" selectedImage="collection" id="UaV-OA-1GW" userLabel="Table"/>
+                    <tabBarItem key="tabBarItem" title="Table" image="table" selectedImage="table" id="UaV-OA-1GW" userLabel="Table"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UEd-OB-iNS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.78039215689999997" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="KmC-pB-nlx" kind="relationship" relationship="rootViewController" id="26c-xG-LPy"/>
@@ -47,7 +48,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vzo-x4-dGA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1191" y="-747"/>
+            <point key="canvasLocation" x="-1191" y="-637"/>
         </scene>
         <!--Editor-->
         <scene sceneID="eqq-zL-JZJ">
@@ -61,10 +62,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Lq-va-Zcv">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="virus125" translatesAutoresizingMaskIntoConstraints="NO" id="1Lq-va-Zcv">
                                 <rect key="frame" x="0.0" y="44" width="600" height="512"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ctw-KL-SYH">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="action" id="Otw-5b-ybI">
+                                        <connections>
+                                            <action selector="shareAction:" destination="Wae-ZZ-vDP" id="9Qq-i1-nQI"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="0fA-Ew-zb7"/>
+                                    <barButtonItem image="camera" id="yOK-Ud-U5k">
+                                        <connections>
+                                            <action selector="pickAnImageFromCamera:" destination="Wae-ZZ-vDP" id="HOl-57-xaX"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="B0S-HP-pJg"/>
+                                    <barButtonItem image="stack" id="VY7-S6-Ywn">
+                                        <connections>
+                                            <action selector="pickAnImageFromAlbum:" destination="Wae-ZZ-vDP" id="g7p-MY-MRx"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="chL-ie-lDn"/>
+                                    <barButtonItem systemItem="cancel" id="Ll7-QA-RwD">
+                                        <connections>
+                                            <action selector="cancelAction:" destination="Wae-ZZ-vDP" id="EeH-7G-KfK"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" red="1" green="0.78039215689999997" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </toolbar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="10" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="VEr-Ba-WH3" userLabel="topTextField">
                                 <rect key="frame" x="293" y="52" width="14" height="48"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -77,26 +107,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ctw-KL-SYH">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                <items>
-                                    <barButtonItem systemItem="action" id="Otw-5b-ybI">
-                                        <connections>
-                                            <action selector="shareAction:" destination="Wae-ZZ-vDP" id="9Qq-i1-nQI"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="0fA-Ew-zb7"/>
-                                    <barButtonItem image="camera" id="yOK-Ud-U5k"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="B0S-HP-pJg"/>
-                                    <barButtonItem image="stack" id="VY7-S6-Ywn"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="chL-ie-lDn"/>
-                                    <barButtonItem systemItem="cancel" id="Ll7-QA-RwD">
-                                        <connections>
-                                            <action selector="cancelAction:" destination="Wae-ZZ-vDP" id="EeH-7G-KfK"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -149,8 +159,11 @@
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Editor" image="meme" id="tVL-PD-jYl" userLabel="Editor"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="albumButton" destination="VY7-S6-Ywn" id="V9q-IY-7tE"/>
                         <outlet property="bottomTextField" destination="gAm-Ly-ciF" id="3nW-IC-9MQ"/>
+                        <outlet property="cameraButton" destination="yOK-Ud-U5k" id="fsK-EF-IQz"/>
                         <outlet property="cancelButton" destination="Ll7-QA-RwD" id="sgT-qY-ojL"/>
                         <outlet property="imagePickerView" destination="1Lq-va-Zcv" id="cs1-uZ-bLB"/>
                         <outlet property="shareButton" destination="Otw-5b-ybI" id="HrO-eA-F88"/>
@@ -160,7 +173,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CgC-aV-tX1" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2142" y="283"/>
+            <point key="canvasLocation" x="-2130" y="283"/>
         </scene>
         <!--Collections-->
         <scene sceneID="9zX-Dq-HUy">
@@ -170,6 +183,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RKz-xf-YmJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.78039215689999997" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="2bd-NJ-MDY" kind="relationship" relationship="rootViewController" id="mkG-qw-ckq"/>
@@ -177,9 +191,9 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x62-vM-MLZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1083" y="141"/>
+            <point key="canvasLocation" x="-1191" y="283"/>
         </scene>
-        <!--Collection-->
+        <!--Memes Sent-->
         <scene sceneID="ixd-fp-arf">
             <objects>
                 <collectionViewController id="2bd-NJ-MDY" sceneMemberID="viewController">
@@ -207,11 +221,11 @@
                             <outlet property="delegate" destination="2bd-NJ-MDY" id="dek-El-Waw"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Collection" id="avV-HE-cX8"/>
+                    <navigationItem key="navigationItem" title="Memes Sent" id="avV-HE-cX8"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ode-Kp-gla" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-183" y="141"/>
+            <point key="canvasLocation" x="-183" y="283"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="tp1-ka-CxB">
@@ -236,8 +250,9 @@
     <resources>
         <image name="camera" width="25" height="25"/>
         <image name="collection" width="25" height="25"/>
-        <image name="meme" width="25" height="25"/>
+        <image name="meme" width="57" height="57"/>
         <image name="stack" width="25" height="25"/>
         <image name="table" width="25" height="25"/>
+        <image name="virus125" width="202" height="312"/>
     </resources>
 </document>

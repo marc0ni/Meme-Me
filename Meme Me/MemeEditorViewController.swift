@@ -30,7 +30,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     let BOTTOM_DEFAULT_TEXT = "BOTTOM"
     
     var memedImage:UIImage!
-    var preview:Bool = false
+    var background: UIImage = UIImage(named:"virus125")!
     
     var meme: Meme!
     
@@ -63,6 +63,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         self.topTextField.delegate = memeTextDelegate
         self.bottomTextField.delegate = memeTextDelegate
         
+        self.tabBarController?.tabBar.hidden = false
+        
         subscribeToKeyboardNotifications()
     }
     
@@ -70,11 +72,17 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         super.viewWillAppear(animated)
         
         //Modified from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
-        if let _ = imagePickerView.image {
+        if imagePickerView.image != background {
             shareButton.enabled = true
         } else {
             shareButton.enabled = false
         }
+        
+        /*if let _ = imagePickerView.image {
+            shareButton.enabled = true
+        } else {
+            shareButton.enabled = false
+        }*/
         
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         ()
@@ -171,12 +179,14 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     ///// MARK: Helpers for creating Meme
     func hideStatusBarAndToolBar() {
         topToolBar.hidden = true
-        bottomToolBar.hidden = true
+        //bottomToolBar.hidden = true
+        self.tabBarController?.tabBar.hidden = true
     }
     
     func showStatusBarAndToolbar() {
         topToolBar.hidden = false
-        bottomToolBar.hidden = false
+        //bottomToolBar.hidden = false
+        self.tabBarController?.tabBar.hidden = false
     }
     
     func resetText() {
@@ -216,7 +226,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func cancel(){
-        imagePickerView.image = nil
+        imagePickerView.image = background
         showStatusBarAndToolbar()
         viewDidLoad()
         shareButton.enabled = false
