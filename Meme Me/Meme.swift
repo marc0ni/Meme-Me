@@ -22,8 +22,13 @@ struct Meme {
             self.pickerViewImage = pickerViewImage
             self.memedImage = memedImage
     }
+    
+    static var allMemes: [Meme] = [Meme]()
 }
 
-extension Meme {
-    static var allMemes = [Meme]()
-}
+
+/*extension Meme {
+    
+    // Generate an array full of all of the memes in
+    static var allMemes: [Meme] = [Meme]()
+}*/
