@@ -27,8 +27,3 @@ struct Meme {
 }
 
 
-/*extension Meme {
-    
-    // Generate an array full of all of the memes in
-    static var allMemes: [Meme] = [Meme]()
-}*/
