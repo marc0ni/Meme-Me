@@ -12,27 +12,21 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var pickerImageView: UIImageView!
     @IBOutlet weak var bottomLabel: UILabel!
+    
+    var meme: Meme!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        self.topLabel.text = self.meme.topTextField
+        self.bottomLabel.text = self.meme.bottomTextField
+        self.pickerImageView!.image = self.meme.pickerViewImage
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
