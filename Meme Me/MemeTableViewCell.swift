@@ -10,15 +10,13 @@ import UIKit
 
 class MemeTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet weak var pickerImageView: UIImageView!
+    @IBOutlet weak var topLabel: UILabel!
+    
+    var meme:Meme! {
+        didSet {
+            topLabel.text = meme.topTextField
+            pickerImageView.image = meme.pickerViewImage
+        }
     }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

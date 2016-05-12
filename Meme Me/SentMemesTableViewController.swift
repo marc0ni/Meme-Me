@@ -22,8 +22,6 @@ class SentMemesTableViewController: UITableViewController {
 
         // Uncomment the following line to preserve selection between presentations
         self.clearsSelectionOnViewWillAppear = false
-
-        self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,16 +43,16 @@ class SentMemesTableViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MemeTableCell", forIndexPath: indexPath)
-        let meme = self.allMemes[indexPath.row]
+        let cell = tableView.dequeueReusableCellWithIdentifier("MemeTableViewCell", forIndexPath: indexPath)
+        //let meme = self.allMemes[indexPath.row]
 
         // Configure the cell...
-        cell.textLabel?.text = meme.topTextField
+        /*cell.topLabel?.text = meme.topTextField
         cell.imageView?.image = UIImage(named:"meme.pickerViewImage")
         
         if let detailTextLabel = cell.detailTextLabel {
             detailTextLabel.text = meme.bottomTextField
-        }
+        }*/
         return cell
     }
     
