@@ -87,8 +87,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <outlet property="imageView" destination="qlG-gs-EeK" id="jug-dQ-ymD"/>
-                                    <outlet property="pickerImageView" destination="qlG-gs-EeK" id="IHv-A8-A8C"/>
+                                    <outlet property="imagePickerView" destination="qlG-gs-EeK" id="zkk-hC-MY3"/>
                                     <outlet property="topLabel" destination="WhN-9o-T4J" id="owg-0v-mNM"/>
                                 </connections>
                             </tableViewCell>
@@ -338,8 +337,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <outlet property="imageView" destination="myU-Fx-Pc6" id="5Fw-wW-hHE"/>
-                                    <outlet property="pickerImageView" destination="myU-Fx-Pc6" id="ao4-b8-MAR"/>
+                                    <outlet property="imagePickerView" destination="myU-Fx-Pc6" id="xJK-d7-NrZ"/>
                                     <outlet property="topLabel" destination="iuW-8z-3Oz" id="5X2-Gk-2RY"/>
                                 </connections>
                             </collectionViewCell>

@@ -14,7 +14,7 @@ class SentMemesTableViewController: UITableViewController {
         return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
     }
     
-    // This is an array of Villain instances
+    // This is an array of Meme instances
     let allMemes = Meme.allMemes
 
     override func viewDidLoad() {
@@ -43,16 +43,12 @@ class SentMemesTableViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MemeTableViewCell", forIndexPath: indexPath)
-        //let meme = self.allMemes[indexPath.row]
+        let cell = tableView.dequeueReusableCellWithIdentifier("MemeTableViewCell", forIndexPath: indexPath) as! MemeTableViewCell
+        
+        let meme = self.allMemes[indexPath.row] as Meme
 
         // Configure the cell...
-        /*cell.topLabel?.text = meme.topTextField
-        cell.imageView?.image = UIImage(named:"meme.pickerViewImage")
-        
-        if let detailTextLabel = cell.detailTextLabel {
-            detailTextLabel.text = meme.bottomTextField
-        }*/
+        cell.meme = meme
         return cell
     }
     
