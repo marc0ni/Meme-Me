@@ -15,15 +15,36 @@ struct Meme {
     var pickerViewImage: UIImage!
     var memedImage: UIImage!
     
-    init(topTextField:String, bottomTextField:String,
-        pickerViewImage: UIImage, memedImage: UIImage){
-            self.topTextField = topTextField
-            self.bottomTextField = bottomTextField
-            self.pickerViewImage = pickerViewImage
-            self.memedImage = memedImage
+    static let TopTextKey = "TopText"
+    static let BottomTextKey = "BottomText"
+    static let PickerImageKey = "PickerKey"
+    static let MemedImageKey = "MemedKey"
+    
+    // Generate a Meme from a four entry dictionary
+    init(dictionary: [String : AnyObject]) {
+        self.topTextField = dictionary[Meme.TopTextKey] as! String
+        self.bottomTextField = dictionary[Meme.BottomTextKey] as! String
+        self.pickerViewImage = dictionary[Meme.PickerImageKey] as! UIImage
+        self.memedImage = dictionary[Meme.MemedImageKey] as! UIImage
+    }
+}
+
+// This extension adds static variable allMemes, an array of Meme objects
+
+extension Meme {
+    static var allMemes: [Meme] {
+        
+        var memeArray = [Meme]()
+        
+        for d in Meme.memeData() {
+            memeArray.append(Meme(dictionary: d))
+        }
+        return memeArray
     }
     
-    static var allMemes: [Meme] = [Meme]()
+    static func memeData() -> [[String : AnyObject]] {
+        return [["TopTextKey":TopTextKey, "BottomTextKey":BottomTextKey, "PickerImageKey":PickerImageKey, "MemedImageKey":MemedImageKey]]
+    }
 }
 
 

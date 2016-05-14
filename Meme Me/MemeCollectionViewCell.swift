@@ -9,13 +9,13 @@
 import UIKit
 
 class MemeCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var imagePickerView: UIImageView!
+    @IBOutlet weak var collectionPickerView: UIImageView!
     @IBOutlet weak var topLabel: UILabel!
     
     var meme:Meme! {
         didSet {
             topLabel.text = meme.topTextField
-            imagePickerView.image = meme.pickerViewImage
+            collectionPickerView.image = meme.pickerViewImage
         }
     }
 }

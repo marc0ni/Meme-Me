@@ -285,18 +285,18 @@
                                     <rect key="frame" x="0.0" y="0.0" width="106" height="95"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="myU-Fx-Pc6">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="myU-Fx-Pc6" userLabel="Collection Picker View">
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iuW-8z-3Oz">
                                             <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="myU-Fx-Pc6" firstAttribute="leading" secondItem="ZM2-Ck-0L0" secondAttribute="leadingMargin" constant="-8" id="5qG-W8-rSi"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="myU-Fx-Pc6" secondAttribute="trailing" constant="-8" id="Nik-As-RTS"/>
@@ -337,6 +337,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
+                                    <outlet property="collectionPickerView" destination="myU-Fx-Pc6" id="S04-Nk-s91"/>
                                     <outlet property="imagePickerView" destination="myU-Fx-Pc6" id="xJK-d7-NrZ"/>
                                     <outlet property="topLabel" destination="iuW-8z-3Oz" id="5X2-Gk-2RY"/>
                                 </connections>

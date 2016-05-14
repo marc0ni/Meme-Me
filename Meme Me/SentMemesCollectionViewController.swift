@@ -10,13 +10,13 @@ import UIKit
 import Foundation
 
 class SentMemesCollectionViewController: UICollectionViewController {
-    
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
-    
     
     var memes: [Meme] {
         return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
     }
+    
+    var contentView = UIView()
     
     // This is an array of Meme instances
     let allMemes = Meme.allMemes
@@ -53,11 +53,11 @@ class SentMemesCollectionViewController: UICollectionViewController {
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MemeCollectionViewCell", forIndexPath: indexPath) as! MemeCollectionViewCell
-        
-       let meme = memes[indexPath.item]
-        
+        let meme = self.allMemes[indexPath.row]
+
         // Configure the cell...
-        cell.meme = meme
+        cell.topLabel.text = meme.topTextField
+        cell.collectionPickerView = UIImageView(image: meme.pickerViewImage)
         
         return cell
     }
