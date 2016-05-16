@@ -20,7 +20,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     
     @IBOutlet weak var topToolBar: UIToolbar!
-    @IBOutlet weak var bottomToolBar: UIToolbar!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     
@@ -33,6 +32,12 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     var background: UIImage = UIImage(named:"virus125")!
     
     var meme: Meme!
+    
+    var memes: [Meme]! {
+        let object = UIApplication.sharedApplication().delegate
+        _ = object as! AppDelegate
+        return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
+    }
     
     let memeTextDelegate = MemeTextFieldDelegate()
     
@@ -77,12 +82,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         } else {
             shareButton.enabled = false
         }
-        
-        /*if let _ = imagePickerView.image {
-            shareButton.enabled = true
-        } else {
-            shareButton.enabled = false
-        }*/
         
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         ()
@@ -172,20 +171,16 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     func unsubscribeFromKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().removeObserver(self, name:UIKeyboardDidShowNotification, object:nil)
         NSNotificationCenter.defaultCenter().removeObserver(self, name:UIKeyboardDidHideNotification, object:nil)
-        
     }
-    
     
     ///// MARK: Helpers for creating Meme
     func hideStatusBarAndToolBar() {
         topToolBar.hidden = true
-        //bottomToolBar.hidden = true
         self.tabBarController?.tabBar.hidden = true
     }
     
     func showStatusBarAndToolbar() {
         topToolBar.hidden = false
-        //bottomToolBar.hidden = false
         self.tabBarController?.tabBar.hidden = false
     }
     
@@ -215,14 +210,15 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     ///// MARK: Save/Cancel
     func save () {
         // Create the meme
-        //let memedImage = generateMemedImage()
-        var meme = Meme(topTextField: topTextField.text!, bottomTextField: bottomTextField.text!, pickerViewImage:imagePickerView.image!, memedImage:memedImage)
-        (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
+        let memedImage = generateMemedImage()
+        let meme = Meme(topTextField: topTextField.text!, bottomTextField: bottomTextField.text!, pickerViewImage:imagePickerView.image!, memedImage:memedImage)
+        //(UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
         
         // Add it to memes array in the Application Delegate
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         appDelegate.memes.append(meme)
+        print("the memes array consists of these memes: \n \(memes)")
     }
     
     func cancel(){

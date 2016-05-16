@@ -10,18 +10,23 @@ import UIKit
 
 class SentMemesTableViewController: UITableViewController {
     
-    var memes: [Meme] {
-        return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
-    }
+    var memes: [Meme]!
     
     // This is an array of Meme instances
     let allMemes = Meme.allMemes
+    
+    override func viewWillAppear(animated: Bool) {
+        tableView.reloadData()
+        
+        let applicationDelegate = (UIApplication.sharedApplication().delegate as!AppDelegate)
+        memes = applicationDelegate.memes
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        self.clearsSelectionOnViewWillAppear = false
+        /*let applicationDelegate = (UIApplication.sharedApplication().delegate as!AppDelegate)
+        memes = applicationDelegate.memes*/
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,14 +43,14 @@ class SentMemesTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.allMemes.count
+        return memes.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MemeTableViewCell", forIndexPath: indexPath) as! MemeTableViewCell
         
-        let meme = self.allMemes[indexPath.row] as Meme
+        let meme = self.memes[indexPath.row] as Meme
 
         // Configure the cell...
         cell.topLabel?.text = meme.topTextField
@@ -84,19 +89,8 @@ class SentMemesTableViewController: UITableViewController {
     
     /*override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
-        detailController.meme = self.allMemes(indexPath.row)
+        detailController.meme = memes(indexPath.row)
         self.navigationController!.pushViewController(detailController, animated: true)
     }*/
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
