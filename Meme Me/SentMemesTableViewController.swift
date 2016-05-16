@@ -10,7 +10,9 @@ import UIKit
 
 class SentMemesTableViewController: UITableViewController {
     
-    var memes: [Meme]!
+    var memes: [Meme]{
+        return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
+    }
     
     // This is an array of Meme instances
     let allMemes = Meme.allMemes
@@ -18,15 +20,10 @@ class SentMemesTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         tableView.reloadData()
         
-        let applicationDelegate = (UIApplication.sharedApplication().delegate as!AppDelegate)
-        memes = applicationDelegate.memes
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        /*let applicationDelegate = (UIApplication.sharedApplication().delegate as!AppDelegate)
-        memes = applicationDelegate.memes*/
     }
 
     override func didReceiveMemoryWarning() {

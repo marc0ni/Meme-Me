@@ -34,9 +34,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     var meme: Meme!
     
     var memes: [Meme]! {
-        let object = UIApplication.sharedApplication().delegate
-        _ = object as! AppDelegate
-        return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
+       return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
     }
     
     let memeTextDelegate = MemeTextFieldDelegate()
@@ -218,7 +216,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         appDelegate.memes.append(meme)
-        print("the memes array consists of these memes: \n \(memes)")
+        print("the memes array consists of the memes: \n \(memes)")
     }
     
     func cancel(){
