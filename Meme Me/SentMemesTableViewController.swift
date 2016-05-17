@@ -51,6 +51,7 @@ class SentMemesTableViewController: UITableViewController {
 
         // Configure the cell...
         cell.topLabel?.text = meme.topTextField
+        cell.bottomLabel?.text = meme.bottomTextField
         cell.imagePickerView.image = meme.pickerViewImage
         
         cell.meme = meme

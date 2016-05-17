@@ -12,10 +12,12 @@ class MemeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var topLabel: UILabel!
+    @IBOutlet weak var bottomLabel: UILabel!
     
     var meme:Meme! {
         didSet {
             topLabel.text = meme.topTextField
+            bottomLabel.text = meme.bottomTextField
             imagePickerView.image = meme.pickerViewImage
         }
     }

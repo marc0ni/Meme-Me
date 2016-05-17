@@ -216,7 +216,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         appDelegate.memes.append(meme)
-        print("the memes array consists of the memes: \n \(memes)")
     }
     
     func cancel(){

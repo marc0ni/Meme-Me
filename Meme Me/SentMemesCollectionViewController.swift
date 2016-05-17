@@ -29,10 +29,11 @@ class SentMemesCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         
         let space: CGFloat = 3.0
-        let dimension = (view.frame.size.width - (2 * space)) / 3.0
+        let widthDimension = (view.frame.size.width - (2 * space)) / 3.0
+        let heightDimension = (view.frame.size.height - (2 * space)) / 3.0
         
         flowLayout.minimumInteritemSpacing = space
-        flowLayout.itemSize = CGSizeMake(dimension, dimension)
+        flowLayout.itemSize = CGSizeMake(widthDimension, heightDimension)
         
     }
     
@@ -58,7 +59,6 @@ class SentMemesCollectionViewController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MemeCollectionViewCell", forIndexPath: indexPath) as! MemeCollectionViewCell
         let meme = self.memes[indexPath.row]
-        print("the current value of 'memes' is \(memes)")
 
         // Configure the cell...
         cell.topLabel.text = meme.topTextField
