@@ -78,14 +78,23 @@ class SentMemesTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
 
     }
-
     
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
     }
     
+    /*override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "segueFromTables") {
+            let detailVC:DetailViewController = segue.destinationViewController as! DetailViewController
+            /*let meme = self.memes[indexPath.row] as Meme
+            detailVC.meme = meme*/
+            self.navigationController!.pushViewController(detailVC, animated: true)
+        }
+    }*/
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //self.performSegueWithIdentifier("segueFromTables", sender: indexPath)
         let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
         let meme = self.memes[indexPath.row] as Meme
         detailController.meme = meme

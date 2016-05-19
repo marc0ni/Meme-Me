@@ -342,7 +342,7 @@
             </objects>
             <point key="canvasLocation" x="-183" y="283"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Detail-->
         <scene sceneID="MKz-DX-kbt">
             <objects>
                 <viewController storyboardIdentifier="DetailViewController" id="Bno-kx-xad" customClass="DetailViewController" customModule="Meme_Me" sceneMemberID="viewController">
@@ -354,61 +354,67 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ghc-ge-FmZ">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                <color key="barTintColor" red="1" green="0.78039215689999997" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <items>
-                                    <navigationItem title="Detail" id="uDz-7V-lTi"/>
-                                </items>
-                            </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tql-Ai-Dok" userLabel="Picker Image View">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yE4-Mw-qYa" userLabel="topLabel">
+                                <rect key="frame" x="20" y="187" width="560" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wWQ-8v-kNB" userLabel="bottomLabel">
+                                <rect key="frame" x="20" y="389" width="560" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mLS-DG-6ID">
                                 <rect key="frame" x="165" y="219" width="270" height="162"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tql-Ai-Dok" userLabel="Picker Image View">
+                                        <rect key="frame" x="0.0" y="0.0" width="270" height="162"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="270" identifier="id001" id="1Fi-fr-kmt"/>
+                                            <constraint firstAttribute="height" constant="162" identifier="id002" id="VZY-of-rm0"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="270" id="KAL-du-sFf"/>
-                                    <constraint firstAttribute="height" constant="162" id="euO-3W-g40"/>
+                                    <constraint firstAttribute="trailing" secondItem="tql-Ai-Dok" secondAttribute="trailing" identifier="id004" id="4ZC-Xq-2OM"/>
+                                    <constraint firstAttribute="bottom" secondItem="tql-Ai-Dok" secondAttribute="bottom" identifier="id005" id="5C3-ma-GfY"/>
+                                    <constraint firstItem="tql-Ai-Dok" firstAttribute="leading" secondItem="mLS-DG-6ID" secondAttribute="leading" identifier="id008" id="Ayr-5H-Kgb"/>
+                                    <constraint firstItem="tql-Ai-Dok" firstAttribute="leading" secondItem="mLS-DG-6ID" secondAttribute="leading" identifier="id009" id="Fnd-QD-nGJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="tql-Ai-Dok" secondAttribute="bottom" identifier="id010" id="IXp-t6-uS5"/>
+                                    <constraint firstItem="tql-Ai-Dok" firstAttribute="top" secondItem="mLS-DG-6ID" secondAttribute="top" identifier="id012" id="dDt-rz-5tj"/>
+                                    <constraint firstItem="tql-Ai-Dok" firstAttribute="top" secondItem="mLS-DG-6ID" secondAttribute="top" identifier="id013" id="dOV-4R-6xP"/>
+                                    <constraint firstItem="tql-Ai-Dok" firstAttribute="centerY" secondItem="mLS-DG-6ID" secondAttribute="centerY" identifier="id014" id="eHk-AS-hBc"/>
+                                    <constraint firstItem="tql-Ai-Dok" firstAttribute="leading" secondItem="mLS-DG-6ID" secondAttribute="leading" identifier="id015" id="jnr-YR-HSr"/>
+                                    <constraint firstItem="tql-Ai-Dok" firstAttribute="centerX" secondItem="mLS-DG-6ID" secondAttribute="centerX" identifier="id016" id="kyW-rJ-Frt"/>
+                                    <constraint firstItem="tql-Ai-Dok" firstAttribute="top" secondItem="mLS-DG-6ID" secondAttribute="top" identifier="id017" id="lKD-rq-jis"/>
+                                    <constraint firstItem="tql-Ai-Dok" firstAttribute="leading" secondItem="mLS-DG-6ID" secondAttribute="leading" identifier="id018" id="qKH-tt-HCD"/>
+                                    <constraint firstItem="tql-Ai-Dok" firstAttribute="top" secondItem="mLS-DG-6ID" secondAttribute="top" identifier="id019" id="rNl-Ar-PAU"/>
+                                    <constraint firstAttribute="trailing" secondItem="tql-Ai-Dok" secondAttribute="trailing" identifier="id020" id="wWj-GC-YRo"/>
                                 </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGI-Nl-SIS" userLabel="topLabel">
-                                <rect key="frame" x="20" y="190" width="560" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="6VB-9N-Gia"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RgZ-g9-Gil" userLabel="bottomLabel">
-                                <rect key="frame" x="20" y="389" width="560" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="tql-Ai-Dok" firstAttribute="centerX" secondItem="iR3-h4-NIc" secondAttribute="centerX" id="92P-hW-g5g"/>
-                            <constraint firstItem="6K5-tF-4Be" firstAttribute="top" secondItem="RgZ-g9-Gil" secondAttribute="bottom" constant="190" id="Cod-PB-Gd8"/>
-                            <constraint firstItem="tql-Ai-Dok" firstAttribute="top" secondItem="ZGI-Nl-SIS" secondAttribute="bottom" constant="8" symbolic="YES" id="Kf4-VW-t7H"/>
-                            <constraint firstItem="ZGI-Nl-SIS" firstAttribute="centerX" secondItem="tql-Ai-Dok" secondAttribute="centerX" id="Oyh-76-Job"/>
-                            <constraint firstItem="ghc-ge-FmZ" firstAttribute="leading" secondItem="iR3-h4-NIc" secondAttribute="leading" id="P17-hP-Ixa"/>
-                            <constraint firstItem="ZGI-Nl-SIS" firstAttribute="leading" secondItem="RgZ-g9-Gil" secondAttribute="leading" id="Qr5-Rn-BSl"/>
-                            <constraint firstItem="ZGI-Nl-SIS" firstAttribute="trailing" secondItem="RgZ-g9-Gil" secondAttribute="trailing" id="jjI-5F-B6e"/>
-                            <constraint firstItem="RgZ-g9-Gil" firstAttribute="top" secondItem="tql-Ai-Dok" secondAttribute="bottom" constant="8" symbolic="YES" id="pgd-rH-w50"/>
-                            <constraint firstItem="ghc-ge-FmZ" firstAttribute="top" secondItem="iR3-h4-NIc" secondAttribute="top" id="pkw-Xa-h3W"/>
-                            <constraint firstItem="ZGI-Nl-SIS" firstAttribute="leading" secondItem="iR3-h4-NIc" secondAttribute="leadingMargin" id="sTy-bu-Sdx"/>
-                            <constraint firstItem="tql-Ai-Dok" firstAttribute="centerY" secondItem="iR3-h4-NIc" secondAttribute="centerY" id="xwD-aq-BSn"/>
-                            <constraint firstItem="tql-Ai-Dok" firstAttribute="centerX" secondItem="ghc-ge-FmZ" secondAttribute="centerX" id="zd6-uV-gKu"/>
+                            <constraint firstItem="mLS-DG-6ID" firstAttribute="centerY" secondItem="iR3-h4-NIc" secondAttribute="centerY" identifier="id021" id="3HN-Tz-iEo"/>
+                            <constraint firstItem="mLS-DG-6ID" firstAttribute="top" secondItem="yE4-Mw-qYa" secondAttribute="bottom" constant="8" symbolic="YES" identifier="id022" id="GGz-d9-FUm"/>
+                            <constraint firstItem="mLS-DG-6ID" firstAttribute="centerX" secondItem="iR3-h4-NIc" secondAttribute="centerX" identifier="id023" id="bdl-0Y-bXv"/>
+                            <constraint firstItem="mLS-DG-6ID" firstAttribute="centerX" secondItem="yE4-Mw-qYa" secondAttribute="centerX" identifier="id024" id="giV-Bf-Yaf"/>
+                            <constraint firstItem="wWQ-8v-kNB" firstAttribute="top" secondItem="mLS-DG-6ID" secondAttribute="bottom" constant="8" symbolic="YES" identifier="id026" id="n6b-NC-I6I"/>
+                            <constraint firstItem="mLS-DG-6ID" firstAttribute="centerX" secondItem="wWQ-8v-kNB" secondAttribute="centerX" identifier="id025" id="nkh-7w-NfK"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Detail" id="cEK-Po-8GV"/>
                     <connections>
-                        <outlet property="bottomLabel" destination="RgZ-g9-Gil" id="b0R-wP-Aob"/>
+                        <outlet property="bottomLabel" destination="wWQ-8v-kNB" id="djp-J5-tjd"/>
                         <outlet property="pickerImageView" destination="tql-Ai-Dok" id="6Ek-hN-r4b"/>
-                        <outlet property="topLabel" destination="ZGI-Nl-SIS" id="f4Y-au-0ML"/>
+                        <outlet property="topLabel" destination="yE4-Mw-qYa" id="bsQ-nd-xJ8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iEo-Lf-80P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="932" y="-47"/>
+            <point key="canvasLocation" x="770" y="-87"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="tp1-ka-CxB">
