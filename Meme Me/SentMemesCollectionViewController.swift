@@ -29,8 +29,8 @@ class SentMemesCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         
         let space: CGFloat = 3.0
-        let widthDimension = (view.frame.size.width - (2 * space)) / 3.0
-        let heightDimension = (view.frame.size.height - (2 * space)) / 3.0
+        let widthDimension = (view.frame.size.width - (2 * space)) / 8.0
+        let heightDimension = (view.frame.size.height - (2 * space)) / 4.0
         
         flowLayout.minimumInteritemSpacing = space
         flowLayout.itemSize = CGSizeMake(widthDimension, heightDimension)
@@ -61,7 +61,8 @@ class SentMemesCollectionViewController: UICollectionViewController {
         let meme = self.memes[indexPath.row]
 
         // Configure the cell...
-        cell.topLabel.text = meme.topTextField
+        cell.topLabel?.text = meme.topTextField
+        cell.bottomLabel?.text = meme.bottomTextField
         cell.collectionPickerView.image = meme.pickerViewImage
         
         return cell
