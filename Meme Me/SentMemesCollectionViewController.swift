@@ -62,32 +62,17 @@ class SentMemesCollectionViewController: UICollectionViewController {
 
         // Configure the cell...
         cell.topLabel.text = meme.topTextField
-        cell.collectionPickerView = UIImageView(image: meme.pickerViewImage)
+        cell.collectionPickerView.image = meme.pickerViewImage
         
         return cell
     }
     
     // MARK: UICollectionViewDelegate
     
-    override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-    return true
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
+        let meme = self.memes[indexPath.row] as Meme
+        detailController.meme = meme
+        self.navigationController!.pushViewController(detailController, animated: true)
     }
-    
-    override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-    return true
-    }
-    
-    
-    override func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-    return false
-    }
-    
-    override func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
-    return false
-    }
-    
-    override func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
-    
-    }
-    
 }
