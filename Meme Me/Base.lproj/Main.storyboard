@@ -277,18 +277,16 @@
                                             <rect key="frame" x="4" y="13" width="98" height="70"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQ4-Fa-S1r" userLabel="topLabel">
-                                            <rect key="frame" x="8" y="19" width="90" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <rect key="frame" x="8" y="0.0" width="90" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Epq-sh-hQ1" userLabel="bottomLabel">
-                                            <rect key="frame" x="8" y="59" width="90" height="21"/>
+                                            <rect key="frame" x="8" y="73" width="90" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="r2y-r4-J4s"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -296,26 +294,18 @@
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailingMargin" secondItem="OOy-mI-ZER" secondAttribute="trailing" constant="-4" id="62H-Q7-HFa"/>
                                     <constraint firstItem="Epq-sh-hQ1" firstAttribute="leading" secondItem="ZM2-Ck-0L0" secondAttribute="leadingMargin" id="7x7-xi-axP"/>
-                                    <constraint firstItem="OOy-mI-ZER" firstAttribute="leading" secondItem="ZM2-Ck-0L0" secondAttribute="leadingMargin" constant="-4" id="9hc-f2-GDw"/>
-                                    <constraint firstAttribute="bottomMargin" secondItem="Epq-sh-hQ1" secondAttribute="bottom" constant="7" id="A1O-CE-IBc"/>
-                                    <constraint firstItem="Epq-sh-hQ1" firstAttribute="top" secondItem="OOy-mI-ZER" secondAttribute="bottom" constant="3" id="EEk-Hu-uEq"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="Epq-sh-hQ1" secondAttribute="bottom" constant="-7" id="A1O-CE-IBc"/>
                                     <constraint firstItem="wQ4-Fa-S1r" firstAttribute="trailing" secondItem="Epq-sh-hQ1" secondAttribute="trailing" id="FeO-cl-fq4"/>
                                     <constraint firstItem="wQ4-Fa-S1r" firstAttribute="leading" secondItem="Epq-sh-hQ1" secondAttribute="leading" id="FoL-Yr-iCm"/>
-                                    <constraint firstItem="OOy-mI-ZER" firstAttribute="top" secondItem="ZM2-Ck-0L0" secondAttribute="topMargin" constant="5" id="N6m-om-46h"/>
-                                    <constraint firstAttribute="bottomMargin" secondItem="OOy-mI-ZER" secondAttribute="bottom" constant="4" id="ZHi-4g-ARA"/>
-                                    <constraint firstItem="Epq-sh-hQ1" firstAttribute="top" secondItem="wQ4-Fa-S1r" secondAttribute="bottom" constant="19" id="bfN-id-Syg"/>
+                                    <constraint firstItem="OOy-mI-ZER" firstAttribute="top" secondItem="ZM2-Ck-0L0" secondAttribute="topMargin" constant="5" id="J8z-Qn-5v8"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="OOy-mI-ZER" secondAttribute="trailing" constant="-4" id="Qv2-DA-10G"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="OOy-mI-ZER" secondAttribute="bottom" constant="4" id="SU4-8x-o9g"/>
+                                    <constraint firstItem="Epq-sh-hQ1" firstAttribute="top" secondItem="wQ4-Fa-S1r" secondAttribute="bottom" constant="52" id="bfN-id-Syg"/>
                                     <constraint firstItem="Epq-sh-hQ1" firstAttribute="trailing" secondItem="ZM2-Ck-0L0" secondAttribute="trailingMargin" id="qjP-tZ-hu1"/>
-                                    <constraint firstItem="wQ4-Fa-S1r" firstAttribute="top" secondItem="ZM2-Ck-0L0" secondAttribute="topMargin" constant="11" id="tDZ-Ts-0fs"/>
-                                    <constraint firstItem="Epq-sh-hQ1" firstAttribute="bottom" secondItem="ZM2-Ck-0L0" secondAttribute="bottomMargin" id="uDC-U5-2kl"/>
+                                    <constraint firstItem="wQ4-Fa-S1r" firstAttribute="top" secondItem="ZM2-Ck-0L0" secondAttribute="topMargin" constant="-8" id="tDZ-Ts-0fs"/>
+                                    <constraint firstItem="OOy-mI-ZER" firstAttribute="leading" secondItem="ZM2-Ck-0L0" secondAttribute="leadingMargin" constant="-4" id="wal-Vf-y27"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="EEk-Hu-uEq"/>
-                                        <exclude reference="uDC-U5-2kl"/>
-                                    </mask>
-                                </variation>
                                 <connections>
                                     <outlet property="bottomLabel" destination="Epq-sh-hQ1" id="XsA-TK-dN7"/>
                                     <outlet property="collectionPickerView" destination="OOy-mI-ZER" id="ZW0-Hw-zIv"/>
