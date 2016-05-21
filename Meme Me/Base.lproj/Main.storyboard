@@ -280,6 +280,7 @@
                                             <rect key="frame" x="8" y="73" width="90" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="39q-Qm-yYE"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="CVf-xO-C6f"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -287,6 +288,9 @@
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQ4-Fa-S1r" userLabel="topLabel">
                                             <rect key="frame" x="8" y="7" width="90" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="Ezx-7m-mfl"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
