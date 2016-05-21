@@ -273,20 +273,22 @@
                                     <rect key="frame" x="0.0" y="0.0" width="106" height="95"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OOy-mI-ZER">
-                                            <rect key="frame" x="4" y="13" width="98" height="70"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OOy-mI-ZER">
+                                            <rect key="frame" x="0.0" y="0.0" width="106" height="95"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQ4-Fa-S1r" userLabel="topLabel">
-                                            <rect key="frame" x="8" y="0.0" width="90" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Epq-sh-hQ1" userLabel="bottomLabel">
                                             <rect key="frame" x="8" y="73" width="90" height="21"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="r2y-r4-J4s"/>
+                                                <constraint firstAttribute="height" constant="21" id="39q-Qm-yYE"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQ4-Fa-S1r" userLabel="topLabel">
+                                            <rect key="frame" x="8" y="7" width="90" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -294,17 +296,17 @@
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="Epq-sh-hQ1" firstAttribute="leading" secondItem="ZM2-Ck-0L0" secondAttribute="leadingMargin" id="7x7-xi-axP"/>
-                                    <constraint firstAttribute="bottomMargin" secondItem="Epq-sh-hQ1" secondAttribute="bottom" constant="-7" id="A1O-CE-IBc"/>
-                                    <constraint firstItem="wQ4-Fa-S1r" firstAttribute="trailing" secondItem="Epq-sh-hQ1" secondAttribute="trailing" id="FeO-cl-fq4"/>
-                                    <constraint firstItem="wQ4-Fa-S1r" firstAttribute="leading" secondItem="Epq-sh-hQ1" secondAttribute="leading" id="FoL-Yr-iCm"/>
-                                    <constraint firstItem="OOy-mI-ZER" firstAttribute="top" secondItem="ZM2-Ck-0L0" secondAttribute="topMargin" constant="5" id="J8z-Qn-5v8"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="OOy-mI-ZER" secondAttribute="trailing" constant="-4" id="Qv2-DA-10G"/>
-                                    <constraint firstAttribute="bottomMargin" secondItem="OOy-mI-ZER" secondAttribute="bottom" constant="4" id="SU4-8x-o9g"/>
-                                    <constraint firstItem="Epq-sh-hQ1" firstAttribute="top" secondItem="wQ4-Fa-S1r" secondAttribute="bottom" constant="52" id="bfN-id-Syg"/>
-                                    <constraint firstItem="Epq-sh-hQ1" firstAttribute="trailing" secondItem="ZM2-Ck-0L0" secondAttribute="trailingMargin" id="qjP-tZ-hu1"/>
-                                    <constraint firstItem="wQ4-Fa-S1r" firstAttribute="top" secondItem="ZM2-Ck-0L0" secondAttribute="topMargin" constant="-8" id="tDZ-Ts-0fs"/>
-                                    <constraint firstItem="OOy-mI-ZER" firstAttribute="leading" secondItem="ZM2-Ck-0L0" secondAttribute="leadingMargin" constant="-4" id="wal-Vf-y27"/>
+                                    <constraint firstItem="wQ4-Fa-S1r" firstAttribute="leading" secondItem="Epq-sh-hQ1" secondAttribute="leading" id="2ar-7o-2Y9"/>
+                                    <constraint firstItem="OOy-mI-ZER" firstAttribute="leading" secondItem="ZM2-Ck-0L0" secondAttribute="leadingMargin" constant="-8" id="Q55-PL-pGV"/>
+                                    <constraint firstItem="Epq-sh-hQ1" firstAttribute="top" secondItem="wQ4-Fa-S1r" secondAttribute="bottom" constant="45" id="Sdz-l8-f98"/>
+                                    <constraint firstItem="wQ4-Fa-S1r" firstAttribute="top" secondItem="OOy-mI-ZER" secondAttribute="top" constant="7" id="Zd2-3J-uEo"/>
+                                    <constraint firstItem="wQ4-Fa-S1r" firstAttribute="trailing" secondItem="Epq-sh-hQ1" secondAttribute="trailing" id="buf-qg-uii"/>
+                                    <constraint firstItem="OOy-mI-ZER" firstAttribute="top" secondItem="ZM2-Ck-0L0" secondAttribute="topMargin" constant="-8" id="ew4-qL-2og"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="OOy-mI-ZER" secondAttribute="bottom" constant="-8" id="hZN-vv-wtd"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="OOy-mI-ZER" secondAttribute="trailing" constant="-8" id="jX9-ds-f98"/>
+                                    <constraint firstItem="wQ4-Fa-S1r" firstAttribute="centerX" secondItem="OOy-mI-ZER" secondAttribute="centerX" id="w6T-LX-An6"/>
+                                    <constraint firstItem="Epq-sh-hQ1" firstAttribute="leading" secondItem="ZM2-Ck-0L0" secondAttribute="leadingMargin" id="wRB-aW-pnB"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="Epq-sh-hQ1" secondAttribute="bottom" constant="-7" id="wiD-2C-xSR"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="bottomLabel" destination="Epq-sh-hQ1" id="XsA-TK-dN7"/>
