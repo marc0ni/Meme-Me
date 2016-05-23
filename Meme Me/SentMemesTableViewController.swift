@@ -14,9 +14,6 @@ class SentMemesTableViewController: UITableViewController {
         return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
     }
     
-    // This is an array of Meme instances
-    let allMemes = Meme.allMemes
-    
     override func viewWillAppear(animated: Bool) {
         tableView.reloadData()
         
@@ -54,17 +51,7 @@ class SentMemesTableViewController: UITableViewController {
         cell.topLabel.text = meme.topTextField
         cell.bottomLabel.text = meme.bottomTextField
         
-        //cell.meme = meme
         return cell
-    }
-    
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

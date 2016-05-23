@@ -386,10 +386,11 @@
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
-                                <include reference="0Cc-1X-55W"/>
+                                <exclude reference="0Cc-1X-55W"/>
+                                <exclude reference="4uD-1T-aVN"/>
                                 <include reference="9bM-H6-cAX"/>
-                                <include reference="A2n-wN-642"/>
-                                <include reference="WXi-HC-bdi"/>
+                                <exclude reference="A2n-wN-642"/>
+                                <exclude reference="WXi-HC-bdi"/>
                             </mask>
                         </variation>
                     </view>

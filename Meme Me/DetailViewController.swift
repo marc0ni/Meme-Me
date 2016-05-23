@@ -20,12 +20,6 @@ class DetailViewController: UIViewController {
         tabBarController?.tabBar.hidden = true
     }
     
-    /*override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        imageView.image = meme.memedImage
-        tabBarController?.tabBar.hidden = true
-    }*/
-    
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -35,13 +29,5 @@ class DetailViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-}
-
-extension NSLayoutConstraint {
-    
-    override public var description: String {
-        let id = identifier ?? ""
-        return "id: \(id), constant: \(constant)" //you may print whatever you want here
     }
 }

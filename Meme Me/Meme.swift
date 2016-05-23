@@ -21,6 +21,5 @@ struct Meme {
         self.pickerViewImage = pickerViewImage
         self.memedImage = memedImage
     }
-    static var allMemes: [Meme] = [Meme]()
 }
 

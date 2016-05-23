@@ -18,9 +18,6 @@ class SentMemesCollectionViewController: UICollectionViewController {
     
     var contentView = UIView()
     
-    // This is an array of Meme instances
-    //let allMemes = Meme.allMemes
-    
     override func viewWillAppear(animated: Bool) {
         collectionView!.reloadData()
     }
@@ -70,7 +67,6 @@ class SentMemesCollectionViewController: UICollectionViewController {
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
-        //let meme = self.memes[indexPath.row] as Meme
         detailController.meme = memes[indexPath.item] as Meme
         self.navigationController!.pushViewController(detailController, animated: true)
     }
