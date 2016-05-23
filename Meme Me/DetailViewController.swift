@@ -9,20 +9,27 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-    @IBOutlet weak var topLabel: UILabel!
-    @IBOutlet weak var pickerImageView: UIImageView!
-    @IBOutlet weak var bottomLabel: UILabel!
+ 
+    @IBOutlet weak var imageView: UIImageView!
     
     var meme: Meme!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        imageView.image = meme.memedImage
+        tabBarController?.tabBar.hidden = true
+    }
+    
+    /*override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        imageView.image = meme.memedImage
+        tabBarController?.tabBar.hidden = true
+    }*/
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
         
-        self.topLabel.text = self.meme.topTextField
-        self.bottomLabel.text = self.meme.bottomTextField
-        self.pickerImageView!.image = self.meme.pickerViewImage
+        tabBarController?.tabBar.hidden = false
     }
 
     override func didReceiveMemoryWarning() {

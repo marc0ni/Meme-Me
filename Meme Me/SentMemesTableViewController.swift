@@ -50,11 +50,11 @@ class SentMemesTableViewController: UITableViewController {
         let meme = self.memes[indexPath.row] as Meme
 
         // Configure the cell...
-        cell.topLabel?.text = meme.topTextField
-        cell.bottomLabel?.text = meme.bottomTextField
-        cell.imagePickerView.image = meme.pickerViewImage
+        cell.memedImage.image = meme.memedImage
+        cell.topLabel.text = meme.topTextField
+        cell.bottomLabel.text = meme.bottomTextField
         
-        cell.meme = meme
+        //cell.meme = meme
         return cell
     }
     
@@ -68,10 +68,9 @@ class SentMemesTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
-        let meme = self.memes[indexPath.row] as Meme
-        detailController.meme = meme
-        self.navigationController!.pushViewController(detailController, animated: true)
+        let detailController:DetailViewController = self.storyboard!.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
+        detailController.meme = memes[indexPath.row] as Meme
+        navigationController!.pushViewController(detailController, animated: true)
     }
 
 }

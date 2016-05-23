@@ -10,15 +10,15 @@ import UIKit
 
 class MemeTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var bottomLabel: UILabel!
-    
+    @IBOutlet weak var memedImage: UIImageView!
+       
     var meme:Meme! {
         didSet {
+            memedImage.image = meme.memedImage
             topLabel.text = meme.topTextField
             bottomLabel.text = meme.bottomTextField
-            imagePickerView.image = meme.pickerViewImage
         }
     }
 }

@@ -19,7 +19,7 @@ class SentMemesCollectionViewController: UICollectionViewController {
     var contentView = UIView()
     
     // This is an array of Meme instances
-    let allMemes = Meme.allMemes
+    //let allMemes = Meme.allMemes
     
     override func viewWillAppear(animated: Bool) {
         collectionView!.reloadData()
@@ -58,12 +58,10 @@ class SentMemesCollectionViewController: UICollectionViewController {
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MemeCollectionViewCell", forIndexPath: indexPath) as! MemeCollectionViewCell
-        let meme = self.memes[indexPath.row]
+        let meme = self.memes[indexPath.item]
 
         // Configure the cell...
-        cell.topLabel?.text = meme.topTextField
-        cell.bottomLabel?.text = meme.bottomTextField
-        cell.collectionPickerView.image = meme.pickerViewImage
+        cell.memedImage.image = meme.memedImage
         
         return cell
     }
@@ -72,8 +70,8 @@ class SentMemesCollectionViewController: UICollectionViewController {
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
-        let meme = self.memes[indexPath.row] as Meme
-        detailController.meme = meme
+        //let meme = self.memes[indexPath.row] as Meme
+        detailController.meme = memes[indexPath.item] as Meme
         self.navigationController!.pushViewController(detailController, animated: true)
     }
 }
