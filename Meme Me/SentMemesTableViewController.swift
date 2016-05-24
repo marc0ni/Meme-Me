@@ -10,6 +10,8 @@ import UIKit
 
 class SentMemesTableViewController: UITableViewController {
     
+    @IBOutlet weak var addButton: UIBarButtonItem!
+    
     var memes: [Meme]{
         return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
     }
@@ -60,4 +62,10 @@ class SentMemesTableViewController: UITableViewController {
         navigationController!.pushViewController(detailController, animated: true)
     }
 
+    @IBAction func addMeme(sender: UIBarButtonItem) {
+        let memeEditor:MemeEditorViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
+        navigationController!.pushViewController(memeEditor, animated: true)
+        
+    }
+    
 }

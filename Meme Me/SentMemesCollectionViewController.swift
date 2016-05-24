@@ -10,6 +10,7 @@ import UIKit
 import Foundation
 
 class SentMemesCollectionViewController: UICollectionViewController {
+    @IBOutlet weak var addMemeButton: UIBarButtonItem!
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
     var memes: [Meme]{
@@ -69,5 +70,10 @@ class SentMemesCollectionViewController: UICollectionViewController {
         let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
         detailController.meme = memes[indexPath.item] as Meme
         self.navigationController!.pushViewController(detailController, animated: true)
+    }
+    
+    @IBAction func addMeme(sender: AnyObject) {
+        let memeEditor:MemeEditorViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
+        navigationController!.pushViewController(memeEditor, animated: true)
     }
 }

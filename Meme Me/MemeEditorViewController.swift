@@ -29,7 +29,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     let BOTTOM_DEFAULT_TEXT = "BOTTOM"
     
     var memedImage:UIImage!
-    var background: UIImage = UIImage(named:"virus125")!
     
     var meme: Meme!
     
@@ -75,7 +74,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         super.viewWillAppear(animated)
         
         //Modified from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
-        if imagePickerView.image != background {
+        if imagePickerView.image != nil {
             shareButton.enabled = true
         } else {
             shareButton.enabled = false
@@ -115,7 +114,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let chosenImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imagePickerView.image = chosenImage
-            imagePickerView.contentMode = .ScaleAspectFill
+            imagePickerView.contentMode = .ScaleAspectFit
             dismissViewControllerAnimated(true, completion: nil)
         }
     }
@@ -218,10 +217,9 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func cancel(){
-        imagePickerView.image = background
-        showStatusBarAndToolbar()
-        viewDidLoad()
-        shareButton.enabled = false
+        performSegueWithIdentifier("TabBarController", sender: self)
+        /*let tabController:TabBarController = self.storyboard!.instantiateViewControllerWithIdentifier("TabBarController") as! TabBarController
+        tabController!.pushViewController(tabController, animated: true)*/
     }
     
     @IBAction func cancelAction(sender: UIBarButtonItem) {
