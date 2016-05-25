@@ -21,6 +21,11 @@ class SentMemesCollectionViewController: UICollectionViewController {
     
     override func viewWillAppear(animated: Bool) {
         collectionView!.reloadData()
+        collectionView?.hidden = false
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        collectionView?.hidden = true
     }
     
     override func viewDidLoad() {
@@ -72,8 +77,14 @@ class SentMemesCollectionViewController: UICollectionViewController {
         self.navigationController!.pushViewController(detailController, animated: true)
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "segueFromCollection") {
+            tabBarController!.tabBar.hidden = true
+        }
+    }
+    
+    
     @IBAction func addMeme(sender: AnyObject) {
-        let memeEditor:MemeEditorViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
-        navigationController!.pushViewController(memeEditor, animated: true)
+        performSegueWithIdentifier("segueFromCollection", sender: addMemeButton)
     }
 }

@@ -10,19 +10,23 @@ import UIKit
 
 class SentMemesTableViewController: UITableViewController {
     
-    @IBOutlet weak var addButton: UIBarButtonItem!
+    @IBOutlet weak var addMemeButton: UIBarButtonItem!
     
     var memes: [Meme]{
         return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
     }
     
     override func viewWillAppear(animated: Bool) {
+        tableView.hidden = false
         tableView.reloadData()
-        
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        tableView.hidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,10 +65,15 @@ class SentMemesTableViewController: UITableViewController {
         detailController.meme = memes[indexPath.row] as Meme
         navigationController!.pushViewController(detailController, animated: true)
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "segueFromTable") {
+            tabBarController!.tabBar.hidden = true
+        }
+    }
 
     @IBAction func addMeme(sender: UIBarButtonItem) {
-        let memeEditor:MemeEditorViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
-        navigationController!.pushViewController(memeEditor, animated: true)
+        performSegueWithIdentifier("segueFromTable", sender: addMemeButton)
         
     }
     

@@ -73,6 +73,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        
         //Modified from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
         if imagePickerView.image != nil {
             shareButton.enabled = true
@@ -217,9 +218,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func cancel(){
-        performSegueWithIdentifier("TabBarController", sender: self)
-        /*let tabController:TabBarController = self.storyboard!.instantiateViewControllerWithIdentifier("TabBarController") as! TabBarController
-        tabController!.pushViewController(tabController, animated: true)*/
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     @IBAction func cancelAction(sender: UIBarButtonItem) {
