@@ -19,6 +19,7 @@ class SentMemesTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         tableView.hidden = false
         tableView.reloadData()
+        self.tabBarController?.tabBar.hidden = false
     }
 
     override func viewDidLoad() {
@@ -27,6 +28,7 @@ class SentMemesTableViewController: UITableViewController {
     
     override func viewWillDisappear(animated: Bool) {
         tableView.hidden = true
+        
     }
 
     override func didReceiveMemoryWarning() {

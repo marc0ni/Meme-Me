@@ -22,10 +22,12 @@ class SentMemesCollectionViewController: UICollectionViewController {
     override func viewWillAppear(animated: Bool) {
         collectionView!.reloadData()
         collectionView?.hidden = false
+        tabBarController!.tabBar.hidden = false
     }
     
     override func viewWillDisappear(animated: Bool) {
         collectionView?.hidden = true
+        
     }
     
     override func viewDidLoad() {

@@ -20,6 +20,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     
     @IBOutlet weak var topToolBar: UIToolbar!
+    @IBOutlet weak var bottomToolBar: UIToolbar!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     
@@ -65,14 +66,14 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         self.topTextField.delegate = memeTextDelegate
         self.bottomTextField.delegate = memeTextDelegate
         
-        self.tabBarController?.tabBar.hidden = false
-        
         subscribeToKeyboardNotifications()
+        self.bottomToolBar.hidden = false
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        tabBarController!.tabBar.hidden = true
+        self.bottomToolBar.hidden = false
         
         //Modified from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
         if imagePickerView.image != nil {
