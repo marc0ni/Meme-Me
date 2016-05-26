@@ -258,10 +258,11 @@
                     <connections>
                         <outlet property="albumButton" destination="LgO-Vu-5nR" id="peD-fN-zca"/>
                         <outlet property="bottomTextField" destination="gAm-Ly-ciF" id="3nW-IC-9MQ"/>
-                        <outlet property="bottomToolBar" destination="DWF-UX-xCI" id="VEV-vm-YaZ"/>
+                        <outlet property="bottomToolBar" destination="DWF-UX-xCI" id="rk7-Xq-LNE"/>
                         <outlet property="cameraButton" destination="t9F-aW-Rr7" id="4kJ-GS-eml"/>
                         <outlet property="cancelButton" destination="LCI-sT-2pP" id="w3J-t9-spl"/>
                         <outlet property="imagePickerView" destination="ptb-bU-KZh" id="a1E-XC-Yh3"/>
+                        <outlet property="navigationBar" destination="4Tb-S7-FSf" id="m3h-2f-sZc"/>
                         <outlet property="shareButton" destination="9Cm-dP-o2Q" id="1hT-X2-v4X"/>
                         <outlet property="topTextField" destination="VEr-Ba-WH3" id="4Ck-rM-P0Q"/>
                     </connections>

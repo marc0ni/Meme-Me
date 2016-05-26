@@ -19,7 +19,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     
-    @IBOutlet weak var topToolBar: UIToolbar!
+    @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var bottomToolBar: UIToolbar!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
@@ -173,14 +173,14 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     ///// MARK: Helpers for creating Meme
-    func hideStatusBarAndToolBar() {
-        topToolBar.hidden = true
-        self.tabBarController?.tabBar.hidden = true
+    func hideNavBarAndToolBar() {
+        navigationBar.hidden = true
+        bottomToolBar.hidden = true
     }
     
-    func showStatusBarAndToolbar() {
-        topToolBar.hidden = false
-        self.tabBarController?.tabBar.hidden = false
+    func showNavBarAndToolbar() {
+        navigationBar.hidden = false
+        bottomToolBar.hidden = false
     }
     
     func resetText() {
@@ -191,7 +191,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     ///// MARK: Memes Object Functions
     func generateMemedImage() -> UIImage {
         
-        hideStatusBarAndToolBar()
+        hideNavBarAndToolBar()
         
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -201,7 +201,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        showStatusBarAndToolbar()
+        showNavBarAndToolbar()
         
         return memedImage
     }
