@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -140,19 +141,21 @@
                                             <action selector="pickAnImageFromAlbum:" destination="Wae-ZZ-vDP" id="B2F-Jh-ZOf"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="pbZ-KJ-oP7"/>
+                                    <barButtonItem image="panAndScan" id="dJW-CH-hWG"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="WOg-CE-3VQ"/>
                                 </items>
                             </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ptb-bU-KZh">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="10" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="gAm-Ly-ciF" userLabel="bottomTextField">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="10" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="gAm-Ly-ciF" userLabel="bottomTextField">
                                 <rect key="frame" x="20" y="495" width="560" height="48"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="10" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="VEr-Ba-WH3" userLabel="topTextField">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="10" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="VEr-Ba-WH3" userLabel="topTextField">
                                 <rect key="frame" x="20" y="56" width="560" height="48"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
@@ -191,6 +194,11 @@
                                 <exclude reference="aaG-DN-cGB"/>
                                 <exclude reference="cVT-hZ-fww"/>
                                 <exclude reference="f5N-dI-ahF"/>
+                                <exclude reference="5Kk-ol-kJu"/>
+                                <exclude reference="DF9-gm-sML"/>
+                                <exclude reference="EeJ-F7-zly"/>
+                                <exclude reference="tfu-ys-vxD"/>
+                                <exclude reference="y6Y-XG-9RE"/>
                                 <exclude reference="DK0-sV-QHw"/>
                                 <exclude reference="ddV-7H-5sg"/>
                                 <exclude reference="o7l-Ol-mad"/>
@@ -199,11 +207,6 @@
                                 <exclude reference="v56-4y-TeM"/>
                                 <exclude reference="304-J9-SXJ"/>
                                 <exclude reference="hTP-zm-n6E"/>
-                                <exclude reference="5Kk-ol-kJu"/>
-                                <exclude reference="DF9-gm-sML"/>
-                                <exclude reference="EeJ-F7-zly"/>
-                                <exclude reference="tfu-ys-vxD"/>
-                                <exclude reference="y6Y-XG-9RE"/>
                                 <exclude reference="hSG-5k-Xdc"/>
                             </mask>
                         </variation>
@@ -217,6 +220,11 @@
                                 <include reference="aaG-DN-cGB"/>
                                 <include reference="cVT-hZ-fww"/>
                                 <include reference="f5N-dI-ahF"/>
+                                <include reference="5Kk-ol-kJu"/>
+                                <include reference="DF9-gm-sML"/>
+                                <include reference="EeJ-F7-zly"/>
+                                <include reference="tfu-ys-vxD"/>
+                                <include reference="y6Y-XG-9RE"/>
                                 <include reference="DK0-sV-QHw"/>
                                 <include reference="ddV-7H-5sg"/>
                                 <include reference="o7l-Ol-mad"/>
@@ -225,11 +233,6 @@
                                 <include reference="v56-4y-TeM"/>
                                 <include reference="304-J9-SXJ"/>
                                 <include reference="hTP-zm-n6E"/>
-                                <include reference="5Kk-ol-kJu"/>
-                                <include reference="DF9-gm-sML"/>
-                                <include reference="EeJ-F7-zly"/>
-                                <include reference="tfu-ys-vxD"/>
-                                <include reference="y6Y-XG-9RE"/>
                                 <include reference="hSG-5k-Xdc"/>
                             </mask>
                         </variation>
@@ -256,6 +259,7 @@
                         <outlet property="cancelButton" destination="LCI-sT-2pP" id="w3J-t9-spl"/>
                         <outlet property="imagePickerView" destination="ptb-bU-KZh" id="a1E-XC-Yh3"/>
                         <outlet property="navigationBar" destination="4Tb-S7-FSf" id="m3h-2f-sZc"/>
+                        <outlet property="panAndScanButton" destination="dJW-CH-hWG" id="xDT-TF-BXd"/>
                         <outlet property="shareButton" destination="9Cm-dP-o2Q" id="1hT-X2-v4X"/>
                         <outlet property="topTextField" destination="VEr-Ba-WH3" id="4Ck-rM-P0Q"/>
                     </connections>
@@ -461,6 +465,7 @@
     </scenes>
     <resources>
         <image name="collection" width="25" height="25"/>
+        <image name="panAndScan" width="25" height="25"/>
         <image name="stack" width="25" height="25"/>
         <image name="table" width="25" height="25"/>
     </resources>

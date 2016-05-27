@@ -18,6 +18,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var albumButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
+    @IBOutlet weak var panAndScanButton: UIBarButtonItem!
+    
     
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var bottomToolBar: UIToolbar!
