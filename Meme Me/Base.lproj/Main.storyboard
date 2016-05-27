@@ -142,8 +142,6 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="pbZ-KJ-oP7"/>
-                                    <barButtonItem image="panAndScan" id="dJW-CH-hWG"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="WOg-CE-3VQ"/>
                                 </items>
                             </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ptb-bU-KZh">
@@ -259,7 +257,6 @@
                         <outlet property="cancelButton" destination="LCI-sT-2pP" id="w3J-t9-spl"/>
                         <outlet property="imagePickerView" destination="ptb-bU-KZh" id="a1E-XC-Yh3"/>
                         <outlet property="navigationBar" destination="4Tb-S7-FSf" id="m3h-2f-sZc"/>
-                        <outlet property="panAndScanButton" destination="dJW-CH-hWG" id="xDT-TF-BXd"/>
                         <outlet property="shareButton" destination="9Cm-dP-o2Q" id="1hT-X2-v4X"/>
                         <outlet property="topTextField" destination="VEr-Ba-WH3" id="4Ck-rM-P0Q"/>
                     </connections>
@@ -465,7 +462,6 @@
     </scenes>
     <resources>
         <image name="collection" width="25" height="25"/>
-        <image name="panAndScan" width="25" height="25"/>
         <image name="stack" width="25" height="25"/>
         <image name="table" width="25" height="25"/>
     </resources>
