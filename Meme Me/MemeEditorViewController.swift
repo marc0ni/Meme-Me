@@ -13,6 +13,7 @@ import Foundation
 
 class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
+    @IBOutlet weak var navigationItems: UINavigationItem!
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
@@ -51,8 +52,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         case bottomTextField
     }
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -69,15 +68,13 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         self.bottomTextField.delegate = memeTextDelegate
         
         subscribeToKeyboardNotifications()
-        self.bottomToolBar.hidden = false
-        
-        self.navigationController?.navigationItem.hidesBackButton = true
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController!.tabBar.hidden = true
-        self.bottomToolBar.hidden = false
+        
+        cancelButton.enabled = true
         
         //Modified from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
         if imagePickerView.image != nil {
@@ -185,8 +182,9 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func showNavBarAndToolbar() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action:"shareAction")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "cancelAction")
+        self.navigationItem.setLeftBarButtonItem(UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "shareAction:"), animated: true)
+        self.navigationItem.setRightBarButtonItem(UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "cancelAction:"), animated: true)
+
         bottomToolBar.hidden = false
     }
     
