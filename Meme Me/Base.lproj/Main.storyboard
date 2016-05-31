@@ -85,7 +85,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="T6M-U5-GVy">
                             <connections>
                                 <action selector="addMeme:" destination="KmC-pB-nlx" id="YqG-86-Y55"/>
-                                <segue destination="Wae-ZZ-vDP" kind="show" id="e06-d3-6E0"/>
+                                <segue destination="Wae-ZZ-vDP" kind="show" identifier="segueFromTable" id="vwZ-Pi-yqc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -139,6 +139,12 @@
                                     <barButtonItem image="stack" id="LgO-Vu-5nR">
                                         <connections>
                                             <action selector="pickAnImageFromAlbum:" destination="Wae-ZZ-vDP" id="B2F-Jh-ZOf"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ghz-Rw-Bx5"/>
+                                    <barButtonItem image="panAndScan" id="7nn-px-TV4" userLabel="Zoom/Pan Button">
+                                        <connections>
+                                            <action selector="zoomAndPanAction:" destination="Wae-ZZ-vDP" id="J89-nK-jgf"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="pbZ-KJ-oP7"/>
@@ -253,6 +259,7 @@
                         <outlet property="navigationItems" destination="nUB-W9-mhS" id="5Oh-ep-KhD"/>
                         <outlet property="shareButton" destination="qqI-In-mXn" id="HuV-Zw-uLi"/>
                         <outlet property="topTextField" destination="VEr-Ba-WH3" id="4Ck-rM-P0Q"/>
+                        <outlet property="zoomAndPanButton" destination="7nn-px-TV4" id="eUY-ZH-orB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CgC-aV-tX1" sceneMemberID="firstResponder"/>
@@ -325,6 +332,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="cnx-oO-p8C">
                             <connections>
                                 <action selector="addMeme:" destination="2bd-NJ-MDY" id="EGg-s1-t0k"/>
+                                <segue destination="Wae-ZZ-vDP" kind="show" identifier="segueFromCollection" id="1UV-7B-uah"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -385,6 +393,103 @@
             </objects>
             <point key="canvasLocation" x="1773" y="-661"/>
         </scene>
+        <!--Zoomed Photo View Controller-->
+        <scene sceneID="7jU-Z1-ZDJ">
+            <objects>
+                <viewController storyboardIdentifier="ZoomedPhotoViewController" id="GRw-wK-bD5" customClass="ZoomedPhotoViewController" customModule="Meme_Me" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2vn-Vq-Hpb"/>
+                        <viewControllerLayoutGuide type="bottom" id="yNe-E8-dTF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="z1h-oB-j78">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SDA-RT-c4y">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="npt-Jf-tIo">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="npt-Jf-tIo" secondAttribute="bottom" id="7BI-C6-p9o"/>
+                                    <constraint firstItem="npt-Jf-tIo" firstAttribute="centerX" secondItem="SDA-RT-c4y" secondAttribute="centerX" id="EMG-BT-oLz"/>
+                                    <constraint firstItem="npt-Jf-tIo" firstAttribute="leading" secondItem="SDA-RT-c4y" secondAttribute="leading" id="IaO-gr-ZPX"/>
+                                    <constraint firstAttribute="trailing" secondItem="npt-Jf-tIo" secondAttribute="trailing" id="Opr-Sc-938"/>
+                                    <constraint firstItem="npt-Jf-tIo" firstAttribute="centerY" secondItem="SDA-RT-c4y" secondAttribute="centerY" id="USR-Ep-RNt"/>
+                                    <constraint firstItem="npt-Jf-tIo" firstAttribute="top" secondItem="SDA-RT-c4y" secondAttribute="top" id="v2i-xt-V22"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="npt-Jf-tIo"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="7BI-C6-p9o"/>
+                                        <exclude reference="EMG-BT-oLz"/>
+                                        <exclude reference="IaO-gr-ZPX"/>
+                                        <exclude reference="Opr-Sc-938"/>
+                                        <exclude reference="USR-Ep-RNt"/>
+                                        <exclude reference="v2i-xt-V22"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="npt-Jf-tIo"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="7BI-C6-p9o"/>
+                                        <include reference="EMG-BT-oLz"/>
+                                        <include reference="IaO-gr-ZPX"/>
+                                        <include reference="Opr-Sc-938"/>
+                                        <include reference="USR-Ep-RNt"/>
+                                        <include reference="v2i-xt-V22"/>
+                                    </mask>
+                                </variation>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yNe-E8-dTF" firstAttribute="top" secondItem="SDA-RT-c4y" secondAttribute="bottom" id="BYg-Yp-XZf"/>
+                            <constraint firstItem="SDA-RT-c4y" firstAttribute="top" secondItem="z1h-oB-j78" secondAttribute="topMargin" id="Bhy-va-T7V"/>
+                            <constraint firstItem="SDA-RT-c4y" firstAttribute="leading" secondItem="z1h-oB-j78" secondAttribute="leadingMargin" constant="-20" id="Cg4-ic-yuv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SDA-RT-c4y" secondAttribute="trailing" constant="-20" id="bPa-eN-3XE"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="SDA-RT-c4y"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Bhy-va-T7V"/>
+                                <exclude reference="Cg4-ic-yuv"/>
+                                <exclude reference="bPa-eN-3XE"/>
+                                <exclude reference="BYg-Yp-XZf"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="SDA-RT-c4y"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Bhy-va-T7V"/>
+                                <include reference="Cg4-ic-yuv"/>
+                                <include reference="bPa-eN-3XE"/>
+                                <include reference="BYg-Yp-XZf"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="npt-Jf-tIo" id="eBU-3f-kf7"/>
+                        <outlet property="imageViewBottomConstraint" destination="7BI-C6-p9o" id="adx-LQ-vNa"/>
+                        <outlet property="imageViewLeadingConstraint" destination="IaO-gr-ZPX" id="P95-Y4-Pvz"/>
+                        <outlet property="imageViewTopConstraint" destination="v2i-xt-V22" id="dZU-uM-Bgs"/>
+                        <outlet property="imageViewTrailingConstraint" destination="Opr-Sc-938" id="89A-xu-eWn"/>
+                        <outlet property="scrollView" destination="SDA-RT-c4y" id="EvM-VB-rcP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cn1-b5-x2h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2605.5" y="-674"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="tp1-ka-CxB">
             <objects>
@@ -406,7 +511,11 @@
     </scenes>
     <resources>
         <image name="collection" width="25" height="25"/>
+        <image name="panAndScan" width="25" height="25"/>
         <image name="stack" width="25" height="25"/>
         <image name="table" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="1UV-7B-uah"/>
+    </inferredMetricsTieBreakers>
 </document>

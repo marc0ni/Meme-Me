@@ -79,15 +79,16 @@ class SentMemesCollectionViewController: UICollectionViewController {
         self.navigationController!.pushViewController(detailController, animated: true)
     }
     
-    /*override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "segueFromCollection") {
             tabBarController!.tabBar.hidden = true
         }
-    }*/
+    }
     
     
     @IBAction func addMeme(sender: AnyObject) {
-        let addController:MemeEditorViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
-        navigationController!.pushViewController(addController, animated: true)
+        performSegueWithIdentifier("segueFromCollection", sender: "addMeme")
+        /*let addController:MemeEditorViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
+        navigationController!.pushViewController(addController, animated: true)*/
     }
 }

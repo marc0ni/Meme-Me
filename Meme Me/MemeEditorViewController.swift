@@ -14,12 +14,12 @@ import Foundation
 class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var navigationItems: UINavigationItem!
-    @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var albumButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
+    @IBOutlet weak var zoomAndPanButton: UIBarButtonItem!
        
     @IBOutlet weak var bottomToolBar: UIToolbar!
     @IBOutlet weak var topTextField: UITextField!
@@ -73,8 +73,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController!.tabBar.hidden = true
-        
-        cancelButton.enabled = true
         
         //Modified from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
         if imagePickerView.image != nil {
@@ -210,6 +208,14 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
         return memedImage
     }
+    
+    ///// MARK: Zoom and Pan
+    @IBAction func zoomAndPanAction(sender: AnyObject) {
+        let zoomController:ZoomedPhotoViewController = self.storyboard!.instantiateViewControllerWithIdentifier("ZoomedPhotoViewController") as! ZoomedPhotoViewController
+        navigationController!.pushViewController(zoomController, animated: true)
+        
+    }
+    
     
     ///// MARK: Save/Cancel
     func save () {
