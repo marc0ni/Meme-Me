@@ -13,13 +13,13 @@ import Foundation
 
 class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
+    @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var albumButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
        
-    @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var bottomToolBar: UIToolbar!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
@@ -51,6 +51,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         case bottomTextField
     }
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -68,6 +70,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
         subscribeToKeyboardNotifications()
         self.bottomToolBar.hidden = false
+        
+        self.navigationController?.navigationItem.hidesBackButton = true
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -93,6 +97,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     deinit {
         unsubscribeFromKeyboardNotifications()
     }
+    
     
     ///// MARK: ImagePicker Functions
     //Copied from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
@@ -174,12 +179,14 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     ///// MARK: Helpers for creating Meme
     func hideNavBarAndToolBar() {
-        navigationBar.hidden = true
+        self.navigationItem.setLeftBarButtonItem(nil, animated: true)
+        self.navigationItem.setRightBarButtonItem(nil, animated: true)
         bottomToolBar.hidden = true
     }
     
     func showNavBarAndToolbar() {
-        navigationBar.hidden = false
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action:"shareAction")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "cancelAction")
         bottomToolBar.hidden = false
     }
     

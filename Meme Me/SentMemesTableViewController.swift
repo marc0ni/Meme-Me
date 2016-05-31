@@ -68,15 +68,15 @@ class SentMemesTableViewController: UITableViewController {
         navigationController!.pushViewController(detailController, animated: true)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    /*override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "segueFromTable") {
             tabBarController!.tabBar.hidden = true
         }
-    }
+    }*/
 
     @IBAction func addMeme(sender: UIBarButtonItem) {
-        performSegueWithIdentifier("segueFromTable", sender: addMemeButton)
-        
+        let addController:MemeEditorViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
+        navigationController!.pushViewController(addController, animated: true)
     }
     
 }
