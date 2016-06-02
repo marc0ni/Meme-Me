@@ -126,6 +126,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ptb-bU-KZh">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="AB1-TQ-69V" appends="YES" id="mdk-5v-gXK"/>
+                                    <outletCollection property="gestureRecognizers" destination="8P4-N5-h2j" appends="YES" id="gpw-kt-guK"/>
+                                </connections>
+                            </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="DWF-UX-xCI">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
@@ -150,14 +158,6 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="pbZ-KJ-oP7"/>
                                 </items>
                             </toolbar>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ptb-bU-KZh">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="AB1-TQ-69V" appends="YES" id="mdk-5v-gXK"/>
-                                    <outletCollection property="gestureRecognizers" destination="8P4-N5-h2j" appends="YES" id="gpw-kt-guK"/>
-                                </connections>
-                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="10" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="gAm-Ly-ciF" userLabel="bottomTextField">
                                 <rect key="frame" x="20" y="495" width="560" height="48"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -193,8 +193,8 @@
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="DWF-UX-xCI"/>
                                 <exclude reference="ptb-bU-KZh"/>
+                                <exclude reference="DWF-UX-xCI"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="5Kk-ol-kJu"/>
@@ -217,8 +217,8 @@
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="DWF-UX-xCI"/>
                                 <include reference="ptb-bU-KZh"/>
+                                <include reference="DWF-UX-xCI"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="5Kk-ol-kJu"/>
