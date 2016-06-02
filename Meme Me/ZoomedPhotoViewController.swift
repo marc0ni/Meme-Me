@@ -20,7 +20,7 @@
 * THE SOFTWARE.
 */
 
-import UIKit
+/*import UIKit
 
 class ZoomedPhotoViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
@@ -30,11 +30,16 @@ class ZoomedPhotoViewController: UIViewController {
     @IBOutlet weak var imageViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var imageViewTrailingConstraint: NSLayoutConstraint!
     
-    var photoName: String!
+    var zoomedImage: UIImage!
     
     override func viewDidLoad() {
-        imageView.image = UIImage(named: photoName)
+        imageView.image = zoomedImage
     }
+    
+    override func viewWillDisappear(animated: Bool) {
+         imagePickerView.image = zoomedImage
+    }
+    
     
     private func updateMinZoomScaleForSize(size: CGSize) {
         let widthScale = size.width / imageView.bounds.width
@@ -77,4 +82,4 @@ extension ZoomedPhotoViewController: UIScrollViewDelegate {
         updateConstraintsForSize(view.bounds.size)  // 4
     }
     
-}
+}*/
