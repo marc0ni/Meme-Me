@@ -76,8 +76,6 @@ class SentMemesTableViewController: UITableViewController {
 
     @IBAction func addMeme(sender: UIBarButtonItem) {
         performSegueWithIdentifier("segueFromTable", sender: "addMeme")
-        /*let addController:MemeEditorViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
-        navigationController!.pushViewController(addController, animated: true)*/
     }
     
 }

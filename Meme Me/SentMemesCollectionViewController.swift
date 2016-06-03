@@ -34,8 +34,8 @@ class SentMemesCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         
         let space: CGFloat = 3.0
-        let widthDimension = (view.frame.size.width - (2 * space)) / 8.0
-        let heightDimension = (view.frame.size.height - (2 * space)) / 4.0
+        let widthDimension = (view.frame.size.width - (2 * space)) / 3
+        let heightDimension = (view.frame.size.height - (2 * space)) / 3.5
         
         flowLayout.minimumInteritemSpacing = space
         flowLayout.itemSize = CGSizeMake(widthDimension, heightDimension)
@@ -88,7 +88,5 @@ class SentMemesCollectionViewController: UICollectionViewController {
     
     @IBAction func addMeme(sender: AnyObject) {
         performSegueWithIdentifier("segueFromCollection", sender: "addMeme")
-        /*let addController:MemeEditorViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
-        navigationController!.pushViewController(addController, animated: true)*/
     }
 }

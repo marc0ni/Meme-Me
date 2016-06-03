@@ -210,6 +210,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
         showNavBarAndToolbar()
         
+        
         return memedImage
     }
     
