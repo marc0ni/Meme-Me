@@ -84,7 +84,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="T6M-U5-GVy">
                             <connections>
                                 <action selector="addMeme:" destination="KmC-pB-nlx" id="YqG-86-Y55"/>
-                                <segue destination="Wae-ZZ-vDP" kind="show" identifier="segueFromTable" id="vwZ-Pi-yqc"/>
+                                <segue destination="Wae-ZZ-vDP" kind="presentation" identifier="segueFromTable" id="vwZ-Pi-yqc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -126,7 +126,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uBQ-pL-2BP">
-                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <rect key="frame" x="0.0" y="44" width="600" height="512"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="10" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="gAm-Ly-ciF" userLabel="bottomTextField">
                                 <rect key="frame" x="20" y="500" width="560" height="48"/>
@@ -135,7 +135,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="10" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="VEr-Ba-WH3" userLabel="topTextField">
-                                <rect key="frame" x="20" y="72" width="560" height="48"/>
+                                <rect key="frame" x="20" y="52" width="560" height="48"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" enablesReturnKeyAutomatically="YES"/>
@@ -164,52 +164,46 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="ArY-pr-Gca"/>
                                 </items>
                             </toolbar>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="POq-6m-fT6">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="New Meme" id="bzz-fx-1VH">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="Q0O-iM-lAT">
+                                            <connections>
+                                                <action selector="shareAction:" destination="Wae-ZZ-vDP" id="0dE-C4-FIW"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="SSX-ph-mtj">
+                                            <connections>
+                                                <action selector="cancelAction:" destination="Wae-ZZ-vDP" id="MSe-HB-VXT"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="gAm-Ly-ciF" firstAttribute="leading" secondItem="1Ug-aj-RBX" secondAttribute="leadingMargin" identifier="id014" id="304-J9-SXJ"/>
-                            <constraint firstItem="VEr-Ba-WH3" firstAttribute="trailing" secondItem="1Ug-aj-RBX" secondAttribute="trailingMargin" id="9AT-iE-KtO"/>
-                            <constraint firstItem="VEr-Ba-WH3" firstAttribute="trailing" secondItem="1Ug-aj-RBX" secondAttribute="trailingMargin" identifier="id009" id="9Nl-xb-DNW"/>
-                            <constraint firstItem="Zua-3j-hf0" firstAttribute="top" secondItem="uBQ-pL-2BP" secondAttribute="bottom" id="9du-td-UEy"/>
-                            <constraint firstItem="Zua-3j-hf0" firstAttribute="leading" secondItem="1Ug-aj-RBX" secondAttribute="leadingMargin" constant="-20" id="MV9-QL-Azn"/>
-                            <constraint firstItem="hSZ-rN-6yA" firstAttribute="top" secondItem="Zua-3j-hf0" secondAttribute="bottom" id="OK9-gi-SpM"/>
-                            <constraint firstItem="VEr-Ba-WH3" firstAttribute="leading" secondItem="1Ug-aj-RBX" secondAttribute="leadingMargin" identifier="id010" id="Rj8-Qa-Dcr"/>
-                            <constraint firstItem="uBQ-pL-2BP" firstAttribute="leading" secondItem="1Ug-aj-RBX" secondAttribute="leadingMargin" constant="-20" id="SfI-DI-ErW"/>
-                            <constraint firstItem="gAm-Ly-ciF" firstAttribute="leading" secondItem="1Ug-aj-RBX" secondAttribute="leadingMargin" id="XmO-hB-Ns8"/>
-                            <constraint firstItem="VEr-Ba-WH3" firstAttribute="leading" secondItem="1Ug-aj-RBX" secondAttribute="leadingMargin" id="av6-xq-3kW"/>
-                            <constraint firstItem="Zua-3j-hf0" firstAttribute="top" secondItem="gAm-Ly-ciF" secondAttribute="bottom" constant="8" id="fWZ-MD-b2p"/>
-                            <constraint firstItem="gAm-Ly-ciF" firstAttribute="trailing" secondItem="1Ug-aj-RBX" secondAttribute="trailingMargin" identifier="id015" id="hTP-zm-n6E"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="uBQ-pL-2BP" secondAttribute="trailing" constant="-20" id="jhm-Az-HMM"/>
-                            <constraint firstItem="gAm-Ly-ciF" firstAttribute="trailing" secondItem="1Ug-aj-RBX" secondAttribute="trailingMargin" id="ka6-Pz-JxX"/>
-                            <constraint firstItem="VEr-Ba-WH3" firstAttribute="leading" secondItem="1Ug-aj-RBX" secondAttribute="leadingMargin" identifier="id011" id="kn7-xU-lUp"/>
-                            <constraint firstItem="Zua-3j-hf0" firstAttribute="top" secondItem="gAm-Ly-ciF" secondAttribute="bottom" constant="8" id="qbL-WM-OWa"/>
-                            <constraint firstItem="VEr-Ba-WH3" firstAttribute="trailing" secondItem="1Ug-aj-RBX" secondAttribute="trailingMargin" identifier="id012" id="rBR-VV-NBb"/>
-                            <constraint firstItem="VEr-Ba-WH3" firstAttribute="top" secondItem="Taz-d7-Uhi" secondAttribute="bottom" constant="8" symbolic="YES" identifier="id013" id="usi-7w-a9Y"/>
-                            <constraint firstItem="uBQ-pL-2BP" firstAttribute="top" secondItem="Taz-d7-Uhi" secondAttribute="bottom" id="x3O-Mx-5ao"/>
-                            <constraint firstItem="VEr-Ba-WH3" firstAttribute="top" secondItem="Taz-d7-Uhi" secondAttribute="bottom" constant="8" id="yqe-LV-lok"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Zua-3j-hf0" secondAttribute="trailing" constant="-20" id="zeu-Pn-KPe"/>
+                            <constraint firstItem="uBQ-pL-2BP" firstAttribute="leading" secondItem="1Ug-aj-RBX" secondAttribute="leadingMargin" constant="-20" id="0Ua-Go-rc3"/>
+                            <constraint firstItem="VEr-Ba-WH3" firstAttribute="trailing" secondItem="1Ug-aj-RBX" secondAttribute="trailingMargin" identifier="edit008" id="9AT-iE-KtO"/>
+                            <constraint firstItem="Zua-3j-hf0" firstAttribute="top" secondItem="uBQ-pL-2BP" secondAttribute="bottom" identifier="edit014" id="9du-td-UEy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uBQ-pL-2BP" secondAttribute="trailing" constant="-20" id="LFG-X5-8nU"/>
+                            <constraint firstItem="Zua-3j-hf0" firstAttribute="leading" secondItem="1Ug-aj-RBX" secondAttribute="leadingMargin" constant="-20" identifier="edit015" id="MV9-QL-Azn"/>
+                            <constraint firstItem="hSZ-rN-6yA" firstAttribute="top" secondItem="Zua-3j-hf0" secondAttribute="bottom" identifier="edit018" id="OK9-gi-SpM"/>
+                            <constraint firstItem="VEr-Ba-WH3" firstAttribute="trailing" secondItem="1Ug-aj-RBX" secondAttribute="trailingMargin" identifier="edit009" id="TPV-W5-A24"/>
+                            <constraint firstItem="POq-6m-fT6" firstAttribute="top" secondItem="1Ug-aj-RBX" secondAttribute="topMargin" identifier="edit001" id="Unu-oU-35G"/>
+                            <constraint firstItem="gAm-Ly-ciF" firstAttribute="leading" secondItem="1Ug-aj-RBX" secondAttribute="leadingMargin" identifier="edit012" id="XmO-hB-Ns8"/>
+                            <constraint firstItem="VEr-Ba-WH3" firstAttribute="leading" secondItem="1Ug-aj-RBX" secondAttribute="leadingMargin" identifier="edit010" id="av6-xq-3kW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uBQ-pL-2BP" secondAttribute="trailing" constant="-20" identifier="edit005" id="jhm-Az-HMM"/>
+                            <constraint firstItem="gAm-Ly-ciF" firstAttribute="trailing" secondItem="1Ug-aj-RBX" secondAttribute="trailingMargin" identifier="edit013" id="ka6-Pz-JxX"/>
+                            <constraint firstItem="POq-6m-fT6" firstAttribute="top" secondItem="1Ug-aj-RBX" secondAttribute="topMargin" identifier="edit002" id="oUx-z8-PGj"/>
+                            <constraint firstItem="Zua-3j-hf0" firstAttribute="top" secondItem="gAm-Ly-ciF" secondAttribute="bottom" constant="8" identifier="edit016" id="qbL-WM-OWa"/>
+                            <constraint firstItem="uBQ-pL-2BP" firstAttribute="top" secondItem="POq-6m-fT6" secondAttribute="bottom" identifier="edit006" id="rDu-hI-MuG"/>
+                            <constraint firstItem="VEr-Ba-WH3" firstAttribute="top" secondItem="POq-6m-fT6" secondAttribute="bottom" constant="8" identifier="edit011" id="u7A-dR-lYi"/>
+                            <constraint firstItem="POq-6m-fT6" firstAttribute="leading" secondItem="1Ug-aj-RBX" secondAttribute="leadingMargin" constant="-20" identifier="edit003" id="vMc-uz-Z6M"/>
+                            <constraint firstItem="uBQ-pL-2BP" firstAttribute="top" secondItem="POq-6m-fT6" secondAttribute="bottom" identifier="edit007" id="wbE-jb-CAP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="POq-6m-fT6" secondAttribute="trailing" constant="-20" identifier="edit004" id="yNV-HN-LVD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Zua-3j-hf0" secondAttribute="trailing" constant="-20" identifier="edit017" id="zeu-Pn-KPe"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="9Nl-xb-DNW"/>
-                                <exclude reference="Rj8-Qa-Dcr"/>
-                                <exclude reference="kn7-xU-lUp"/>
-                                <exclude reference="rBR-VV-NBb"/>
-                                <exclude reference="usi-7w-a9Y"/>
-                                <exclude reference="304-J9-SXJ"/>
-                                <exclude reference="hTP-zm-n6E"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="constraints">
-                                <include reference="9Nl-xb-DNW"/>
-                                <include reference="Rj8-Qa-Dcr"/>
-                                <include reference="kn7-xU-lUp"/>
-                                <include reference="rBR-VV-NBb"/>
-                                <include reference="usi-7w-a9Y"/>
-                                <include reference="304-J9-SXJ"/>
-                                <include reference="hTP-zm-n6E"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Memes" id="nUB-W9-mhS">
                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="qqI-In-mXn">
@@ -230,10 +224,10 @@
                         <outlet property="bottomTextField" destination="gAm-Ly-ciF" id="3nW-IC-9MQ"/>
                         <outlet property="bottomToolBar" destination="Zua-3j-hf0" id="4c9-Pr-NUY"/>
                         <outlet property="cameraButton" destination="jNJ-Pm-yPl" id="Ukl-9M-T8P"/>
-                        <outlet property="cancelButton" destination="2db-6g-vqJ" id="lg2-th-JHQ"/>
+                        <outlet property="cancelButton" destination="SSX-ph-mtj" id="k4p-4d-jBY"/>
                         <outlet property="imagePickerView" destination="uBQ-pL-2BP" id="ldv-HF-R5n"/>
-                        <outlet property="navigationItems" destination="nUB-W9-mhS" id="5Oh-ep-KhD"/>
-                        <outlet property="shareButton" destination="qqI-In-mXn" id="HuV-Zw-uLi"/>
+                        <outlet property="navigationItems" destination="POq-6m-fT6" id="p2c-hS-ypn"/>
+                        <outlet property="shareButton" destination="Q0O-iM-lAT" id="3rv-lH-2XZ"/>
                         <outlet property="topTextField" destination="VEr-Ba-WH3" id="4Ck-rM-P0Q"/>
                         <outlet property="zoomAndPanButton" destination="2w7-VT-fmc" id="1qK-M0-zCw"/>
                     </connections>
@@ -322,7 +316,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="cnx-oO-p8C">
                             <connections>
                                 <action selector="addMeme:" destination="2bd-NJ-MDY" id="EGg-s1-t0k"/>
-                                <segue destination="Wae-ZZ-vDP" kind="show" identifier="segueFromCollection" id="1UV-7B-uah"/>
+                                <segue destination="Wae-ZZ-vDP" kind="presentation" identifier="segueFromCollection" id="1UV-7B-uah"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

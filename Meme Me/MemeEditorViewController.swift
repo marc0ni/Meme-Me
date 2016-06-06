@@ -13,7 +13,8 @@ import Foundation
 
 class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
-    @IBOutlet weak var navigationItems: UINavigationItem!
+    
+    @IBOutlet weak var navigationItems: UINavigationBar!
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var albumButton: UIBarButtonItem!
@@ -74,7 +75,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        tabBarController!.tabBar.hidden = true
+        //tabBarController!.tabBar.hidden = true
         
         //Modified from https://github.com/mrecachinas/MemeMeApp/blob/master/MemeMe/MemeEditorViewController.swift
         if imagePickerView.image != nil {
@@ -142,7 +143,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         presentViewController(activityViewController, animated: true, completion: nil)
     }
     
-    
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return [.AllButUpsideDown]
     }
@@ -178,15 +178,12 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     ///// MARK: Helpers for creating Meme
     func hideNavBarAndToolBar() {
-        self.navigationItem.setLeftBarButtonItem(nil, animated: true)
-        self.navigationItem.setRightBarButtonItem(nil, animated: true)
+        self.navigationItems.hidden = true
         bottomToolBar.hidden = true
     }
     
     func showNavBarAndToolbar() {
-        self.navigationItem.setLeftBarButtonItem(UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "shareAction:"), animated: true)
-        self.navigationItem.setRightBarButtonItem(UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "cancelAction:"), animated: true)
-
+        self.navigationItems.hidden = false
         bottomToolBar.hidden = false
     }
     
@@ -283,13 +280,15 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func cancel(){
-        self.navigationController?.popViewControllerAnimated(true)
+        presentingViewController?.dismissViewControllerAnimated(true, completion:nil)
     }
     
-    @IBAction func cancelAction(sender: UIBarButtonItem) {
+    @IBAction func cancelAction(sender: AnyObject) {
         cancel()
     }
+    
 }
+    
 
 extension NSLayoutConstraint {
     
