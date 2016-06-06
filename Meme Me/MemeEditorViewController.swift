@@ -64,8 +64,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         topTextField.textAlignment = .Center
         bottomTextField.textAlignment = .Center
         
-        self.topTextField.delegate = memeTextDelegate
-        self.bottomTextField.delegate = memeTextDelegate
+        topTextField.delegate = memeTextDelegate
+        bottomTextField.delegate = memeTextDelegate
         
         zoomAndPanButton.enabled = false
         
@@ -129,12 +129,12 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBAction func shareAction(sender: UIBarButtonItem) {
         let memedImage = generateMemedImage()
         let activityViewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
-        activityViewController.completionWithItemsHandler = { (s: String?, ok: Bool, items: [AnyObject]?, err: NSError?) -> Void in
-            if ok {
+        activityViewController.completionWithItemsHandler = { (type: String?, returnedItem: Bool, items: [AnyObject]?, error: NSError?) -> Void in
+            if returnedItem {
                 self.save()
                 print("Successfully saved image.")
-            } else if err != nil {
-                print("Error: \(err)")
+            } else if error != nil {
+                print("Error: \(error)")
             } else {
                 print("Unknown cancel -- user likely clicked \"cancel\" to dismiss activity view.")
             }

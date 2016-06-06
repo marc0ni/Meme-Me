@@ -35,7 +35,7 @@ class SentMemesCollectionViewController: UICollectionViewController {
         
         let space: CGFloat = 3.0
         let widthDimension = (view.frame.size.width - (2 * space)) / 3
-        let heightDimension = (view.frame.size.height - (2 * space)) / 3.5
+        let heightDimension = (view.frame.size.height - (2 * space)) / 3
         
         flowLayout.minimumInteritemSpacing = space
         flowLayout.itemSize = CGSizeMake(widthDimension, heightDimension)

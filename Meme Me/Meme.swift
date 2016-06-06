@@ -14,12 +14,5 @@ struct Meme {
     var bottomTextField:String!
     var pickerViewImage: UIImage!
     var memedImage: UIImage!
-    
-    init(topTextField: String, bottomTextField: String, pickerViewImage:UIImage, memedImage:UIImage) {
-        self.topTextField = topTextField
-        self.bottomTextField = bottomTextField
-        self.pickerViewImage = pickerViewImage
-        self.memedImage = memedImage
-    }
 }
 
