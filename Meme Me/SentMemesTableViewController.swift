@@ -19,7 +19,7 @@ class SentMemesTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         tableView.hidden = false
         tableView.reloadData()
-        self.tabBarController?.tabBar.hidden = false
+        tabBarController?.tabBar.hidden = false
     }
 
     override func viewDidLoad() {
@@ -52,7 +52,7 @@ class SentMemesTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MemeTableViewCell", forIndexPath: indexPath) as! MemeTableViewCell
         
-        let meme = self.memes[indexPath.row] as Meme
+        let meme = memes[indexPath.row] as Meme
 
         // Configure the cell...
         cell.memedImage.image = meme.memedImage

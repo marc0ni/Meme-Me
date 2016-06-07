@@ -178,12 +178,12 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     ///// MARK: Helpers for creating Meme
     func hideNavBarAndToolBar() {
-        self.navigationItems.hidden = true
+        navigationItems.hidden = true
         bottomToolBar.hidden = true
     }
     
     func showNavBarAndToolbar() {
-        self.navigationItems.hidden = false
+        navigationItems.hidden = false
         bottomToolBar.hidden = false
     }
     
